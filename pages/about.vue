@@ -39,43 +39,79 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #eee6de;
+    border-radius: 12px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    line-height: 1.8;
+    color: #444;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b59f4b;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #555;
+}
+
+.intro {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #333;
+}
+
+.bold {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #222;
+    margin-top: 30px;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #b59f4b;
+    width: 60px;
+    margin: 20px 0;
+}
+
+/* Responsive improvements */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+        margin: 20px;
+    }
 
     h1 {
-        color: #b59f4b;
+        font-size: 2rem;
     }
 
     h2 {
-        color: #333;
+        font-size: 1.5rem;
     }
 
-    .intro {
-        font-weight: bold;
+    p {
+        font-size: 1rem;
     }
+}
 
-    .bold {
-        font-weight: bold;
-    }
-
-    .highlight {
-        color: #b59f4b;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    .divider {
-        border: none;
-        border-top: 2px solid #b59f4b;
-        width: 50px;
-        margin: 10px 0 20px 0;
-    }
-
-    .container {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-        line-height: 1.6;
-        color: #555;
-        background-color: #EEE6DE;
-        padding: 20px;
-        border-radius: 10px;
-    }
 </style>
