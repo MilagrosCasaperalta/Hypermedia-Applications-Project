@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/supabase'],
   css: ['@/assets/css/main.css'],
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
+  },
   supabase: {
     redirect: false
   }
