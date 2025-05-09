@@ -1,16 +1,28 @@
 <template>
   <main>
-
-      <div id="card-container">
-          <TheCard v-for = "teacher of teachers" :title = "teacher.id + ' ' + teacher.name"/>
-      </div>
+    <div id="card-container">
+      <TheCard 
+        v-for="teacher in teachers" 
+        :key="teacher.id" 
+        :title="teacher.id + ' ' + teacher.name" 
+        :path="imagePath"
+        :alt="'helo'" />
+    </div>
   </main>
 </template>
 
 <script setup>
   const { data: teachers } = await useFetch('/api/teachers')
-
-
+  const imagePath = '/img/teachers/1.png';
 
 
 </script>
+
+<style scoped>
+/* Styles for the main container */
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+</style>
