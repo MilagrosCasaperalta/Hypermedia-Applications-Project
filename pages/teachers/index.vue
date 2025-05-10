@@ -18,11 +18,6 @@
 
 </script>
 
-<style scoped>
-/* Styles for the main container */
-#card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+<style>
+
 </style>
