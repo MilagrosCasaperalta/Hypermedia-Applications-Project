@@ -3,7 +3,7 @@
 
         <h1>About us</h1>
 
-        <TheParagraph image = '/about/first_about.jpg'
+        <TheParagraph image = '/img/about/first_about.jpg'
                    image-cap= ''
                    position = "right"
                    imageWidth='80%'>
@@ -14,7 +14,7 @@
 
 
 
-      <TheParagraph image = '/about/second_about.jpg'
+      <TheParagraph image = '/img/about/second_about.jpg'
                    image-cap= "people in class chillin"
                    position = "left"
                    imageWidth='80%'>
@@ -24,7 +24,7 @@
 
         </TheParagraph>
 
-<TheParagraph image = '/about/third_about.jpg'
+<TheParagraph image = '/img/about/third_about.jpg'
                    image-cap= "people in class chillin"
                    position = "right"
                    imageWidth='80%'>
