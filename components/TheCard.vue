@@ -2,14 +2,19 @@
     <div class="card">
         <img class="img" :src="path" alt="Card Image"/>
         <span class="title">{{ title }}</span>
+        <span class="subtitle">{{ subtitle }}</span>
+        <div>
+        <NuxtLink :to = "link" ><button class="card_button"><span>More Details</span></button></NuxtLink>
+        </div>
     </div>
 </template>
 
 <script setup>
-  // Define props to accept title and path for the image
   const props = defineProps({
     title: String,
-    path: String // The image path is passed as a prop
+    subtitle: String,
+    path: String, 
+    link: String
   });
 </script>
 
