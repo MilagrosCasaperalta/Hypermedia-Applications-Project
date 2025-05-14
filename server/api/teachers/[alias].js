@@ -8,6 +8,8 @@ export default eventHandler(async (event) => {
     .select(`
       id,
       alias,
+      description,
+      role,
       name,
       activities:
       teachers_activities (
@@ -18,6 +20,6 @@ export default eventHandler(async (event) => {
       )
     `)
     .eq('alias', id).single()
-    console.log(data.activities[1])
+    console.log(data)
         return data
 })

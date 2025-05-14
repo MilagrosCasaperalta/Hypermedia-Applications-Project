@@ -8,8 +8,8 @@
           :key="teacher.id" 
           :title="teacher.name"
           :subtitle="teacher.role"
-          :link="'/teachers/' + teacher.alias"
-          :path="`/img/teachers/${teacher.id}.png`"
+          :link="'/teachers/' + teacher.alias" 
+          :path="`/img/teachers/${teacher.id}.png`" 
           :alt="`${teacher.name} portrait`"
         />
       </div>
