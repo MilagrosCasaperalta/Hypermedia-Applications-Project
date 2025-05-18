@@ -5,12 +5,12 @@
     <!-- Left image of the paragraph -->
     <div v-if="leftImageVisibility" class="paragraph-image">
       <figure class="wrapper">
-        <img :src="image" :alt="imageCap" :style="{width: imageWidth}"/>
+        <img :src="image" :alt="imageCap" :style="{width: imageWidth }"/>
       </figure>
     </div>
 
     <!-- Text of the paragraph -->
-    <div :class="paragraphTextClass">
+    <div :class="paragraphTextClass" >
       <div :class="'wrapper ' + textWrapperClass">
         <slot> </slot>
       </div>
@@ -19,7 +19,7 @@
      <!-- Right image of the paragraph -->
     <div v-if="rightImageVisibility" class="paragraph-image">
       <figure class="wrapper">
-        <img :src="image" :alt="imageCap" :style="{width: imageWidth}" />
+        <img :src="image" :alt="imageCap" :style="{width: imageWidth }" />
       </figure>
     </div>
      </section>
@@ -92,35 +92,36 @@ export default {
 
 <style scoped>
 /*  Wrapper to center the content */
-.wrapper {
-  display: inline-block;
-  margin: auto;
-}
+    .wrapper {
+        display: inline-block;
+        margin: auto;
+    }
 
 /* Containers components */
-.paragraph-container {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-  width: 100%;
-  display: flow-root;
-}
-.paragraph-image,
-.paragraph-text,
-.paragraph-text-only {
-  position: relative;
-  width: 100%;
-}
+    .paragraph-container {
+        width: 100%;
+        display: flow-root;
+    }
+    .paragraph-image,
+    .paragraph-text,
+    .paragraph-text-only {
+        position: relative;
+        width: 100%;
+     
+    }
 
 /* Additional spacing between text and the paragraph image  */
-.left-paragraph {
-  padding-right: 1em;
-  padding-left: 5em;
-  }
+    .left-paragraph {
+        padding-right: 1em;
+        padding-left: 5em;
+    
+    }
 
-.right-paragraph {
-  padding-left: 1em;
-  padding-right: 5em;
-}
+    .right-paragraph {
+        padding-left: 1em;
+        padding-right: 5em;
+      
+    }
 
 /* Prevent huge margin top space, as the whole component is already spaced apart */
 .left-paragraph :first-child,
@@ -145,10 +146,10 @@ img {
     float: left;
   }
   .paragraph-text {
-    width: 65%;
+    width: 50%;
   }
   .paragraph-image {
-    width: 35%;
+    width: 50%;
   }
 }
 /* Grid management for desktop devices */
@@ -156,12 +157,14 @@ img {
   img {
     max-height: 70vh;
   }
-  .left-paragraph {
-    padding-right: 0px;
-  }
-  .right-paragraph {
-    padding-left: 0px;
-  }
+    .left-paragraph {
+        padding-right: 0px;
+  
+    }
+    .right-paragraph {
+        padding-left: 0px;
+    
+    }
 
   /* Revert the margin for the first element */
   .left-paragraph :first-child,
