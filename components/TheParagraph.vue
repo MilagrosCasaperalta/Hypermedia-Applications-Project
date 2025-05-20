@@ -1,3 +1,12 @@
+ <!--
+ Props:
+    - image (String): URL of the image to display (optional).
+    - imageCap (String): Alt text for the image (optional).
+    - position (String): Position of the text relative to the image — 'right' (default) or 'left'.
+    - imageWidth (String): CSS width value for the image (default: '100%').
+-->
+
+
 <template>
 
   <section :class="'paragraph-container' + containerDirectionClass" >
@@ -5,7 +14,7 @@
     <!-- Left image of the paragraph -->
     <div v-if="leftImageVisibility" class="paragraph-image">
       <figure class="wrapper">
-        <img :src="image" :alt="imageCap" :style="{width: imageWidth }"/>
+        <img :src="image" :alt="imageCap" :style="{width: imageWidth}"/>
       </figure>
     </div>
 
@@ -28,67 +37,37 @@
 <script>
 export default {
   props: {
-    // image: image for the paragraphs (optional)
     image: { type: String, default: () => '' },
-
-    // image-cap: alt attribute of the image (optional)
     imageCap: { type: String, default: () => '' },
-
-    // postion: position of the paragraph's text. Either 'right' or 'left'. Right by default (optional)
     position: {
       type: String,
       default: () => 'right',
       validator: (value) => ['right', 'left'].includes(value.toLowerCase()),
     },
-
-    // imageWidth: controls the width of the Image
     imageWidth: {
-        type: String,
-        default: () => '100%',
-    }
-
+      type: String,
+      default: () => '100%',
+    },
   },
   data() {
     return {
-      /** Visibility flag of the left image */
-      leftImageVisibility: this.hasImage() && this.isRightPositioned(),
-
-      /** Visibility flag of the right image */
-      rightImageVisibility: this.hasImage() && !this.isRightPositioned(),
-
-     /** Class of the main container of the paragraph to show the image always before the text in mobile version. */
-      containerDirectionClass: this.isRightPositioned()
+      leftImageVisibility: this.image && this.position === 'right',
+      rightImageVisibility: this.image && this.position === 'left',
+      paragraphTextClass: this.image ? 'paragraph-text' : 'paragraph-text-only',
+      textWrapperClass: !this.image
         ? ''
-        : 'image-before-paragraph',
-
-
-         /** Class for the paragraph's text to manage its size according to its type */
-      paragraphTextClass: this.hasImage()
-        ? 'paragraph-text'
-        : 'paragraph-text-only',
-
-      /** Class for the wrapper of the paragraph's text to define left/right margin */
-      textWrapperClass: !this.hasImage()
-        ? ''
-        : this.isRightPositioned()
+        : this.position === 'right'
         ? ' right-paragraph'
         : ' left-paragraph',
     }
   },
-  methods: {
-    /** Return true iff the paragraph's text is right positioned */
-    isRightPositioned() {
-      return this.position === 'right'
-    },
-
-    /** Return true iff the paragraph is not a text-only one */
-    hasImage() {
-      return this.image !== ''
+  computed: {
+    containerDirectionClass() {
+      return this.position === 'left' ? ' image-before-paragraph' : ''
     },
   },
 }
 </script>
-
 
 <style scoped>
 /*  Wrapper to center the content */
@@ -98,10 +77,11 @@ export default {
     }
 
 /* Containers components */
-    .paragraph-container {
-        width: 100%;
-        display: flow-root;
-    }
+  .paragraph-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
     .paragraph-image,
     .paragraph-text,
     .paragraph-text-only {
@@ -112,16 +92,13 @@ export default {
 
 /* Additional spacing between text and the paragraph image  */
     .left-paragraph {
-        padding-right: 1em;
-        padding-left: 5em;
-    
+        padding-right: 2em;
     }
 
-    .right-paragraph {
-        padding-left: 1em;
-        padding-right: 5em;
-      
-    }
+   .right-paragraph {
+    padding-right: 2em;
+  
+}
 
 /* Prevent huge margin top space, as the whole component is already spaced apart */
 .left-paragraph :first-child,
@@ -141,6 +118,7 @@ img {
 
 /* Grid management for mobile devices */
 @media (min-width: 720px) {
+  
   .paragraph-image,
   .paragraph-text {
     float: left;
