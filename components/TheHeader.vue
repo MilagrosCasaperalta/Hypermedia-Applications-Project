@@ -7,7 +7,19 @@
         </NuxtLink>
       </div>
       <ul class="nav-links">
-        <li><NuxtLink to="/activities">Our activities</NuxtLink></li>
+        <li class="dropdown">
+          <NuxtLink to="/activities" class="drop">Our activities</NuxtLink>
+          <ul class="drop-content">
+            <li><NuxtLink to="/pilates">Pilates</NuxtLink></li>
+            <li><NuxtLink to="/meditation">Meditation & Breathwork</NuxtLink></li>
+            <li><NuxtLink to="/therapy">Yoga Therapy</NuxtLink></li>
+            <li><NuxtLink to="/ashtanga">Ashtanga Yoga</NuxtLink></li>
+            <li><NuxtLink to="/hatha">Hatha Yoga</NuxtLink></li>   
+            <li><NuxtLink to="/yin">Yin Yoga</NuxtLink></li>   
+            <li><NuxtLink to="/vinyasa">Vinyasa Flow</NuxtLink></li>   
+            <li><NuxtLink to="/power">Power Yoga</NuxtLink></li>                                                
+          </ul>
+        </li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
         <li><NuxtLink to="/about">About us</NuxtLink></li>
         <li><NuxtLink to="/contact">Contact us</NuxtLink></li>
@@ -17,6 +29,17 @@
   </header>
 </template>
 
+<script setup>
+function showChild() {
+  child_class.value = "over_class"
+}
+
+function hideChild() {
+  child_class.value = "out_class"
+}
+
+
+</script>
 
 <style scoped>
 #navigator_bar {
@@ -60,5 +83,6 @@
 .nav-links a.router-link-active {
   color: #b59f4b;
 }
+
 
 </style>
