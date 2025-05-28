@@ -4,14 +4,11 @@
       <h1>Meet Our Activity</h1>
       <div id="card-container">
         <h3>Pilates</h3>
-        <TheCard 
-          v-for="teacher in teachers" 
-          :key="teacher.id" 
-          :title="teacher.name"
-          :subtitle="teacher.role"
-          :link="'/teachers/' + teacher.alias" 
-          :path="`/img/teachers/${teacher.id}.png`" 
-          :alt="`${teacher.name} portrait`"
+        <TheSmallCard 
+          v-for="activity in activities" 
+          :title="activity.name"
+          :subtitle="activity.type"
+          :link="'/activities/' + activity.alias" 
         />
       </div>
     </section>
@@ -20,4 +17,5 @@
 
 <script setup>
 const { data: activities } = await useFetch('/api/activities')
+
 </script>

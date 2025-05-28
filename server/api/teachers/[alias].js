@@ -20,6 +20,5 @@ export default eventHandler(async (event) => {
       )
     `)
     .eq('alias', id).single()
-    console.log(data)
         return data
 })
