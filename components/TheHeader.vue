@@ -10,20 +10,19 @@
         <li class="dropdown">
           <NuxtLink to="/activities" class="drop">Our activities</NuxtLink>
           <ul class="drop-content">
-            <li><NuxtLink to="/pilates">Pilates</NuxtLink></li>
-            <li><NuxtLink to="/meditation">Meditation & Breathwork</NuxtLink></li>
-            <li><NuxtLink to="/therapy">Yoga Therapy</NuxtLink></li>
-            <li><NuxtLink to="/ashtanga">Ashtanga Yoga</NuxtLink></li>
-            <li><NuxtLink to="/hatha">Hatha Yoga</NuxtLink></li>   
-            <li><NuxtLink to="/yin">Yin Yoga</NuxtLink></li>   
-            <li><NuxtLink to="/vinyasa">Vinyasa Flow</NuxtLink></li>   
-            <li><NuxtLink to="/power">Power Yoga</NuxtLink></li>                                                
+            <li><NuxtLink to="/activities/pilates">Pilates</NuxtLink></li>
+            <li><NuxtLink to="/activities/meditation">Meditation & Breathwork</NuxtLink></li>
+            <li><NuxtLink to="/activities/therapy">Yoga Therapy</NuxtLink></li>
+            <li><NuxtLink to="/activities/ashtanga">Ashtanga Yoga</NuxtLink></li>
+            <li><NuxtLink to="/activities/hatha">Hatha Yoga</NuxtLink></li>   
+            <li><NuxtLink to="/activities/yin">Yin Yoga</NuxtLink></li>   
+            <li><NuxtLink to="/activities/vinyasa">Vinyasa Flow</NuxtLink></li>   
+            <li><NuxtLink to="/activities/power">Power Yoga</NuxtLink></li>                                                
           </ul>
         </li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
         <li><NuxtLink to="/about">About us</NuxtLink></li>
         <li><NuxtLink to="/contact">Contact us</NuxtLink></li>
-        <li><NuxtLink to="/highlights">Highlights</NuxtLink></li>
       </ul>
     </nav>
   </header>
@@ -83,6 +82,21 @@ function hideChild() {
 .nav-links a.router-link-active {
   color: #b59f4b;
 }
+.dropdown {
+  position: relative;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
+
 
 
 </style>

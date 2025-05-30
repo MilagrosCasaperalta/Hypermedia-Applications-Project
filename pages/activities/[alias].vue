@@ -7,6 +7,7 @@
         <p class="activity-type">{{ activity.type }}</p>
         <p class="activity-start">{{ activity.start }}</p>
         <p class="activity-location">{{ activity.location }}</p>
+        <p class="activity-location">{{ activity.start_time + ' to ' + activity.end_time }}</p>
         <p class="activity-description">{{ activity.description }}</p>       
         <div class="teacher-related">
           <strong>Related teachers:</strong>
