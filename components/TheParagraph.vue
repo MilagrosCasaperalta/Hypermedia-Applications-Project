@@ -87,7 +87,6 @@ export default {
     .paragraph-text-only {
         position: relative;
         width: 100%;
-     
     }
 
 /* Additional spacing between text and the paragraph image  */
@@ -103,7 +102,7 @@ export default {
 /* Prevent huge margin top space, as the whole component is already spaced apart */
 .left-paragraph :first-child,
 .right-paragraph :first-child {
-  margin-top: 0px;
+  margin-top: 1px;
 }
 
 /* Image layout */

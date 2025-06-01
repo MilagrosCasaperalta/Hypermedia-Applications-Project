@@ -1,3 +1,6 @@
+import TheMap from '~/components/TheMap.vue'
+
+
 <template>
    <section class="hero">
       <div class="overlay"></div>
@@ -6,11 +9,17 @@
         <p>Begin your journey with us.</p>
       </div>
     </section>
+
+    <TheMap />
+
+     <section class="section newsletter">
+      <NewsletterForm />
+    </section>
+
   </template>
 
 
 <style scoped>
-
 .hero {
   position: relative;
   background-image: url('/img/contact/contact_us_main.jpg');
@@ -41,6 +50,10 @@
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: white;
+}
+.section {
+  padding: 60px 30px;
+  text-align: center;
 }
 </style>
 
