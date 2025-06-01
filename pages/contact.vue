@@ -22,23 +22,33 @@ import TheMap from '~/components/TheMap.vue'
 <style scoped>
 .hero {
   position: relative;
-  background-image: url('/img/contact/contact_us_main.jpg');
-  background-size: cover;
-  background-position: center;
   height: 60vh;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/img/contact/contact_us_main.JPG');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.05); /* hide blur edges */
+  z-index: 0;
 }
 
 .hero-content {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
-  max-width: 700px;
+  color: white;
   padding: 0 20px;
+  max-width: 700px;
 }
+
 
 .hero-content h1 {
   font-size: 3rem;
@@ -57,10 +67,3 @@ import TheMap from '~/components/TheMap.vue'
 }
 </style>
 
-  
-
-<script>
-export default {
-  name: "ContactUs"
-};
-</script>
