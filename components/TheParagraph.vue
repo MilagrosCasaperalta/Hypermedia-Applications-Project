@@ -109,10 +109,13 @@ export default {
 .paragraph-image * {
   display: block;
 }
+
 img {
-  width: auto;
-  max-width: 100%;
-  margin: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 
 /* Grid management for mobile devices */
@@ -123,10 +126,10 @@ img {
     float: left;
   }
   .paragraph-text {
-    width: 50%;
+    width: 60%;
   }
   .paragraph-image {
-    width: 50%;
+    width: 40%;
   }
 }
 /* Grid management for desktop devices */
