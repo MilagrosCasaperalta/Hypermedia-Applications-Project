@@ -87,10 +87,17 @@ function hideChild() {
 }
 
 .drop-content {
+  list-style: none;
+  padding-left: 0; 
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  background-color: #322A2A;
+
 }
 
 .dropdown:hover .drop-content {
