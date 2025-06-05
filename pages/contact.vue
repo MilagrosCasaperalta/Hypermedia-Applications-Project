@@ -12,10 +12,6 @@ import TheMap from '~/components/TheMap.vue'
 
     <TheMap />
 
-     <section class="section newsletter">
-      <NewsletterForm />
-    </section>
-
   </template>
 
 

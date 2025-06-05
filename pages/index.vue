@@ -29,11 +29,6 @@
       </div>
     </section>
 
-    <!-- Inserisci qui la newsletter -->
-    <section class="section newsletter">
-      <NewsletterForm />
-    </section>
-
     <section class="section cta">
       <h2>Ready to Begin Your Journey?</h2>
       <p>We can't wait to welcome you.</p>

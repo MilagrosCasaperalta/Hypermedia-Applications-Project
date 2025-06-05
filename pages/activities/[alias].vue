@@ -12,7 +12,7 @@
         <div class="teacher-related">
           <strong>Related teachers:</strong>
         <ul>
-        <li v-for="teacher in activity.teachers"">
+        <li v-for="teacher in activity.teachers">
             <NuxtLink :to="`/teachers/${teacher.teachers.alias}`">
             {{ teacher.teachers.name }}
             </NuxtLink>

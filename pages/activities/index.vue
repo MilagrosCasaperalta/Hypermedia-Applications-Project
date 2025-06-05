@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="activity-section">
-      <h1>Meet Our Activity</h1>
+      <h1>Meet Our Activities</h1>
       <div>
         <h3>Pilates</h3>
       </div>
