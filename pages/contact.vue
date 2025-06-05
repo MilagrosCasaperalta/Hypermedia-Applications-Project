@@ -60,6 +60,9 @@ import TheMap from '~/components/TheMap.vue'
   font-size: 1.3rem;
   margin-bottom: 20px;
   color: white;
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
 }
 .section {
   padding: 60px 30px;
@@ -67,3 +70,17 @@ import TheMap from '~/components/TheMap.vue'
 }
 </style>
 
+
+
+<style>
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

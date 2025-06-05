@@ -3,9 +3,9 @@
         <TheParagraph image='/img/about/first_about.png'
                       image-cap=''
                       position="right"
-                      imageWidth='100%'>
+                      imageWidth='80%'>
 
-            <ul>
+            
                 <div>
                   
                         <h2>How it started</h2>
@@ -20,7 +20,7 @@
                     not just with their bodies, but with their breath, their inner world, and
                     each other.
                 </div>
-            </ul>
+      
         </TheParagraph>
 
 
@@ -28,9 +28,9 @@
       <TheParagraph image = '/img/about/second_about.png'
                    image-cap= "people in class chillin"
                    position = "left"
-                   imageWidth='100%'>
+                   imageWidth='80%'>
 
-          <ul>
+      
               <div>
                   <h2>Our Values</h2>
                   At SoulFlow NYC, yoga is more than a sequence of movements.
@@ -47,16 +47,16 @@
                   for quiet reflection. SoulFlow is a place to let go of comparison,
                   listen deeply, and return to what matters.
               </div>
-          </ul>
+   
 
         </TheParagraph>
 
 <TheParagraph image = '/img/about/third_about.png'
                    image-cap= "people in class chillin"
                    position = "right"
-                   imageWidth='100%'>
+                   imageWidth='80%'>
 
-           <ul>
+    
               <div>
                   <h2>Our Mission</h2>
                   We believe that yoga is more than a physical 
@@ -69,7 +69,7 @@
                   we aim to make wellness accessible and meaningful for all: one breath, one flow, 
                   one soul at a time.
               </div>
-          </ul>
+      
       
         </TheParagraph>
 </template>
@@ -146,6 +146,25 @@ export default {
     p {
         font-size: 1rem;
     }
+
+
+     .paragraph-image {
+    width: 50%; 
+  }
+  .paragraph-text {
+    width: 50%;
+  }
 }
+
+@media (min-width: 720px) {
+  .paragraph-image {
+    width: 30%; 
+  }
+  .paragraph-text {
+    width: 70%;
+  }
+}
+
+
 
 </style>
