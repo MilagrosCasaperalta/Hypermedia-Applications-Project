@@ -18,6 +18,7 @@
 </template>
 
 <script setup>
+import '~/assets/css/activity-page.css'
 const { data: activities } = await useFetch('/api/activities')
 const ashtanga = activities.value.filter(activity => activity.type === 'Ashtanga Yoga')
 
