@@ -111,7 +111,7 @@ export default {
 }
 
 img {
-  width: 100%;
+  width: 80%;
   height: auto;
   object-fit: cover;
   display: block;
