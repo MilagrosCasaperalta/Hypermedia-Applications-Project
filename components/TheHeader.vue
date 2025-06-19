@@ -21,8 +21,8 @@
           </ul>
         </li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
-        <li><NuxtLink to="/about">About us</NuxtLink></li>
-        <li><NuxtLink to="/contact">Contact us</NuxtLink></li>
+        <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/contact">Contacts</NuxtLink></li>
       </ul>
     </nav>
   </header>
@@ -51,7 +51,7 @@ function hideChild() {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.8);
 }
 
 .nav-left .logo img {

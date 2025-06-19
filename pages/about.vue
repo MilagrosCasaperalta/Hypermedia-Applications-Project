@@ -3,7 +3,7 @@
         <TheParagraph image='/img/about/first_about.png'
                       image-cap=''
                       position="right"
-                      imageWidth='80%'>
+                      imageWidth='100%'>
 
             
                 <div>
@@ -28,7 +28,7 @@
       <TheParagraph image = '/img/about/second_about.png'
                    image-cap= "people in class chillin"
                    position = "left"
-                   imageWidth='80%'>
+                   imageWidth='100%'>
 
       
               <div>
@@ -54,12 +54,12 @@
 <TheParagraph image = '/img/about/third_about.png'
                    image-cap= "people in class chillin"
                    position = "right"
-                   imageWidth='80%'>
+                   imageWidth='100%'>
 
     
               <div>
                   <h2>Our Mission</h2>
-                  We believe that yoga is more than a physical 
+                 We believe that yoga is more than a physical 
                   discipline; it is a powerful tool for cultivating 
                   presence, self-awareness, and compassion. Whether you're 
                   stepping onto the mat for the first time or deepening an 
@@ -68,6 +68,7 @@
                   Through thoughtful classes, community gatherings, and conscious outreach, 
                   we aim to make wellness accessible and meaningful for all: one breath, one flow, 
                   one soul at a time.
+             
               </div>
       
       
@@ -82,89 +83,24 @@ export default {
 </script>
 
 <style scoped>
-.container {
-     max-width: 900px;
-     margin: 40px auto;
-     padding: 40px 30px;
-     background-color: #eee6de;
-     border-radius: 12px;
-     font-family: 'Segoe UI', 'Arial', sans-serif;
-     line-height: 1.8;
-     color: #444;
-     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
- }
-
-
- h1 {
-     font-size: 2.5rem;
-     font-weight: 700;
-     color: #b59f4b;
-     margin-bottom: 10px;
-     margin-left: 60px;
-     text-transform: uppercase;
-     letter-spacing: 1px;
- }
 
     h2 {
-        font-size: 1.5rem;
-        font-weight: 0;
-        color: #b59f4b;
-      
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-
-    ul {
-        font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60vh; 
-        margin: 0; 
+      color: #000000;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 550;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     div {
-        
-        font-size: 1.1rem;
-        margin-bottom: 1.2rem;
-        color: #555;
+      align-items: center;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        font-size: 1.2rem;
+        color: #000000;
         text-align: center;
+        
     }
-
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 20px 15px;
-        margin: 20px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-
-    p {
-        font-size: 1rem;
-    }
-
-
-     .paragraph-image {
-    width: 50%; 
-  }
-  .paragraph-text {
-    width: 50%;
-  }
-}
-
-@media (min-width: 720px) {
-  .paragraph-image {
-    width: 30%; 
-  }
-  .paragraph-text {
-    width: 70%;
-  }
-}
-
 
 
 </style>

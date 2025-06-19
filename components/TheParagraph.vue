@@ -82,22 +82,21 @@ export default {
   display: table;
   clear: both;
 }
-    .paragraph-image,
-    .paragraph-text,
-    .paragraph-text-only {
+    .paragraph-image{
         position: relative;
         width: 100%;
     }
 
-/* Additional spacing between text and the paragraph image  */
-    .left-paragraph {
-        padding-right: 2em;
+    .paragraph-text,
+    .paragraph-text-only {
+      margin-top: 10px;
+      margin-bottom: 20px;
+     
+    
+       position: relative;
+      width: 100%;
+      border-radius: 40px;      
     }
-
-   .right-paragraph {
-    padding-right: 2em;
-  
-}
 
 /* Prevent huge margin top space, as the whole component is already spaced apart */
 .left-paragraph :first-child,
@@ -107,7 +106,11 @@ export default {
 
 /* Image layout */
 .paragraph-image * {
-  display: block;
+  max-width: 100%;
+  max-height: 450px;
+  display: flex;
+  padding-left: 2%;
+   padding-right:2%;
 }
 
 img {
@@ -115,7 +118,8 @@ img {
   height: auto;
   object-fit: cover;
   display: block;
-  border-radius: 8px;
+  border-radius: 50px;
+ 
 }
 
 /* Grid management for mobile devices */
@@ -123,7 +127,9 @@ img {
   
   .paragraph-image,
   .paragraph-text {
+   
     float: left;
+    padding-bottom: 2%;
   }
   .paragraph-text {
     width: 60%;
@@ -138,11 +144,11 @@ img {
     max-height: 70vh;
   }
     .left-paragraph {
-        padding-right: 0px;
+        padding-right: 2px;
   
     }
     .right-paragraph {
-        padding-left: 0px;
+        padding-left: 2px;
     
     }
 
@@ -158,4 +164,6 @@ img {
     flex-direction: column-reverse;
   }
 }
+
 </style>
+
