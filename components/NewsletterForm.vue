@@ -1,6 +1,5 @@
 <template>
   <form @submit.prevent="handleSubmit" class="newsletter-form">
-    <label for="email">Join our newsletter</label>
     <input
       id="email"
       type="email"
@@ -8,9 +7,7 @@
       placeholder="Write your email"
       required
     />
-    <button type="submit" :disabled="loading">
-      {{ loading ? 'Sending...' : 'Join' }}
-    </button>
+    <button type="submit" :disabled="loading">{{ loading ? 'Sending...' : 'Join' }}</button>
     <p v-if="message" :class="{ success: success, error: !success }">{{ message }}</p>
   </form>
 </template>
@@ -29,17 +26,15 @@ async function handleSubmit() {
   success.value = false
 
   try {
-    // Qui fai la chiamata al tuo backend o API di newsletter
-    // Esempio: await $fetch('/api/newsletter/subscribe', { method: 'POST', body: { email: email.value } })
-
-    // Per demo, simuliamo una risposta positiva dopo 1 secondo
-    await new Promise(r => setTimeout(r, 1000))
-
-    message.value = 'Thank you for subscribing!'
+    await $fetch('/api/newsletter/subscribe', {
+      method: 'POST',
+      body: { email: email.value }
+    })
+    message.value = 'Thank you for subscribing! Please check your inbox 📬'
     success.value = true
     email.value = ''
   } catch (e) {
-    message.value = 'Try again later. Something went wrong.'
+    message.value = 'Something went wrong. Please try again later.'
     success.value = false
   } finally {
     loading.value = false
@@ -54,21 +49,18 @@ async function handleSubmit() {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 .newsletter-form input {
   padding: 0.6rem 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  font-size: 1rem;
 }
 
 .newsletter-form button {
   padding: 0.6rem 1rem;
   background-color: #8a6a4d;
   color: white;
-  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -76,11 +68,9 @@ async function handleSubmit() {
 
 .newsletter-form button:disabled {
   background-color: #bfae9a;
-  cursor: not-allowed;
 }
 
 .newsletter-form p {
-  margin: 0;
   font-size: 0.9rem;
   text-align: center;
 }

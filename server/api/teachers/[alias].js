@@ -2,7 +2,7 @@ import { serverSupabaseClient } from '#supabase/server'
 
 export default eventHandler(async (event) => {
     const client = await serverSupabaseClient(event)
-    const id = event.context.params.id
+    const alias = event.context.params.alias
   const { data, error } = await client
     .from('teachers')
     .select(`
@@ -19,6 +19,6 @@ export default eventHandler(async (event) => {
         )
       )
     `)
-    .eq('alias', id).single()
+    .eq('alias', alias).single()
         return data
 })

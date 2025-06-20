@@ -4,7 +4,7 @@
       <h2>Visit Us</h2>
       <p><strong>Address:</strong> Manhattan, New York, NY</p>
       <p><strong>Phone:</strong> (123) 456-7890</p>
-      <p><strong>Email:</strong> SoulFlowContact@soulflow.com</p>
+      <p><strong>Email:</strong> soul.flow.ny@gmail.com</p>
     </div>
 
     <div class="map-container">

@@ -39,4 +39,27 @@ const { data: teachers } = await useFetch('/api/teachers')
   gap: 24px;
   justify-content: center;
 }
+
+/* Raw data section */
+.raw-data-section {
+  margin-top: 80px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-top: 2px solid #ddd;
+}
+
+.raw-data-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.raw-data-section pre {
+  background: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
 </style>
