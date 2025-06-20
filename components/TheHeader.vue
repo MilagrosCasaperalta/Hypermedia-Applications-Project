@@ -20,6 +20,7 @@
             <li><NuxtLink to="/activities/power">Power Yoga</NuxtLink></li>                                                
           </ul>
         </li>
+        <li><NuxtLink to="/highlight">Highlights</NuxtLink></li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
         <li><NuxtLink to="/contact">Contacts</NuxtLink></li>
