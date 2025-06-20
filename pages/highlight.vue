@@ -19,5 +19,4 @@
 <script setup>
 import '~/assets/css/activity-page.css'
 const { data: activities } = await useFetch('/api/highlight')
-console.log(activities)
 </script>
