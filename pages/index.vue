@@ -10,6 +10,18 @@
       </div>
     </section>
 
+    <section class="activity-section">
+      <h1>Meet Our promoting activities</h1>
+      <div id="card-container">
+        <TheSmallCard 
+          v-for="activity in activities" 
+          :title="activity.activities.name"
+          :subtitle="activity.ads"
+          :link="'/activities/' + activity.activities.alias" 
+        />
+      </div>
+    </section>
+
     <section class="section about">
       <h2>Why Choose SoulFlow?</h2>
       <p>We are more than a studio — we are a sanctuary. A place where movement, breath, and stillness meet to create harmony in your life.</p>
@@ -47,6 +59,7 @@ const classes = [
   { title: 'Meditation & Breathwork', path: '/img/classes/meditation.png' },
   { title: 'Pilates', path: '/img/classes/pilates.png' },
 ]
+const { data: activities } = await useFetch('/api/highlight')
 </script>
 
 <style scoped>

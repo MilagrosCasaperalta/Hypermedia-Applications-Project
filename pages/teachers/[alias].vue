@@ -36,6 +36,7 @@
 </template>
 
 <script setup>
+import '~/assets/css/activity-page.css'
 const route = useRoute()
 const alias = route.params.alias
 const { data: teacher, error } = await useFetch('/api/teachers/' + alias)
