@@ -15,10 +15,15 @@ export default eventHandler(async (event) => {
       teachers_activities (
         activities (
           id,
-          name
+          name,
+          alias,
+          start_time
         )
       )
     `)
     .eq('alias', alias).single()
+
+
+    console.log(data)
         return data
 })

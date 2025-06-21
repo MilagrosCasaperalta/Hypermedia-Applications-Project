@@ -22,6 +22,17 @@
   <div v-else class="loading">
     <p>Loading teacher info...</p>
   </div>
+
+      <section class="activity-section">
+      <div id="card-container">
+        <TheSmallCard 
+          v-for="activity in teacher.activities" 
+          :title="activity.activities.name"
+          :subtitle="activity.activities.start_time"
+          :link="'/activities/' + activity.activities.alias" 
+        />
+      </div>
+    </section>
 </template>
 
 <script setup>
