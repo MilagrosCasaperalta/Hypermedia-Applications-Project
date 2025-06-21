@@ -1,14 +1,12 @@
 <template>
   <main>
-    <section 
-      class="activity-section"
-      v-for="activity in activities" 
-    >
-      <h1>{{ activity.ads }}</h1>
+    <section class="activity-section">
+      <h1>Meet Our promoting activities</h1>
       <div id="card-container">
         <TheSmallCard 
+          v-for="activity in activities" 
           :title="activity.activities.name"
-          :subtitle="activity.activities.start_time"
+          :subtitle="activity.ads"
           :link="'/activities/' + activity.activities.alias" 
         />
       </div>
