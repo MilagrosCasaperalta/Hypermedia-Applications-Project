@@ -9,7 +9,6 @@
       <div id="card-container">
         <TheSmallCard 
           v-for="activity in courses" 
-          :key="activity.id"
           :name="activity.name"
           :schedule="activity.schedule"
           :location="activity.location"
@@ -25,7 +24,6 @@
       <div id="card-container">
         <TheSmallCard 
           v-for="activity in event" 
-          :key="activity.id"
           :name="activity.name"
           :schedule="activity.schedule"
           :location="activity.location"

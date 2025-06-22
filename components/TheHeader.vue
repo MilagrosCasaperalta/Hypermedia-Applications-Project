@@ -14,7 +14,6 @@
             <li><NuxtLink to="/activities/event">Event</NuxtLink></li>                                             
           </ul>
         </li>
-        <li><NuxtLink to="/highlight">Highlights</NuxtLink></li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
         <li><NuxtLink to="/contact">Contacts</NuxtLink></li>

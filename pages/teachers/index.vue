@@ -5,7 +5,6 @@
       <div id="card-container">
         <TheCard 
           v-for="teacher in teachers" 
-          :key="teacher.id" 
           :title="teacher.name"
           :subtitle="teacher.role"
           :link="'/teachers/' + teacher.alias" 

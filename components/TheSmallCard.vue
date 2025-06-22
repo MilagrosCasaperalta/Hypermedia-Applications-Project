@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <h2 v-if="name">{{ name }}</h2>
+    <h2 v-if="ads">{{ ads }}</h2>
     <p v-if="location"><strong>Location:</strong> {{ location }}</p>
     <p v-if="schedule"><strong>Schedule:</strong> {{ schedule }}</p>
 
@@ -23,6 +24,7 @@
 const props = defineProps({
   name: String,
   location: String,
+  ads: String,
   schedule: String,
   teacherList: {
     type: Array,

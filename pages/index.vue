@@ -39,6 +39,23 @@
         />
       </div>
     </section>
+    <section class="highlight">
+      <div>
+        <h3>Highlight</h3>
+      </div>
+      <div id="card-container">
+        <TheSmallCard 
+          v-for="activity in highlight" 
+          :name="activity.activities.name"
+          :ads="activity.ads"
+          :schedule="activity.activities.schedule"
+          :location="activity.activities.location"
+          :teacherList="activity.activities.teachers_activities"
+          :type="activity.activities.types.name"
+          :typeLink="`/activities/${activity.activities.types.alias}`"
+        />
+      </div>
+    </section>
 
   </div>
 </template>
