@@ -1,63 +1,76 @@
 <template>
   <div class="page-container">
-    <h1 class="title">Activity Information Page</h1>
-    <div class="activity-card">
-      <div class="activity-info">
-        <h2 class="activity-name">{{ activity.name }}</h2>
-        <p class="activity-type">{{ activity.type }}</p>
-        <p class="activity-start">{{ activity.start }}</p>
-        <p class="activity-location">{{ activity.location }}</p>
-        <p class="activity-location">{{ activity.start_time + ' to ' + activity.end_time }}</p>
-        <p class="activity-description">{{ activity.description }}</p>       
-       
-         <div class="teacher-related">
-          <strong>Teaching This Class:</strong>
-          <ul>
-            <li v-for="teacher in activity.teachers" :key="teacher.teachers.id">
-              <NuxtLink :to="`/teachers/${teacher.teachers.alias}`" class="teacher-link">
-                {{ teacher.teachers.name }}
-              </NuxtLink>
-        </li>
-        </ul>
-        </div>
+    <div class="type-card">
+      <img
+        :src="`/img/classes/ashtanga.png`"
+        :alt="` portrait`"
+        class="type-image"
+      />
+
+      <div class="type-info">
+        <h1 class="type-name">{{ type[0].name }}</h1>
+        <p class="type-description">{{ type[0].description }}</p>
       </div>
     </div>
-
+  </div>
+  <div id="card-container">
+    <TheSmallCard
+      v-for="item in activity"
+      :name="item.name"
+      :schedule="item.schedule"
+      :teacherList="item.teachers"
+      :location="item.location"
+    />
   </div>
 </template>
 
-
 <script setup>
-    const route = useRoute()
-    const alias = route.params.alias
-    const { data: activity } = await useFetch('/api/activities/' + alias)
+import '~/assets/css/activity-page.css'
+const route = useRoute()
+const alias = route.params.alias
+const { data: activity } = await useFetch('/api/activities/' + alias)
+const { data: types } = await useFetch('/api/activities/')
+const type = types.value.filter(types =>
+  types.alias == alias
+);
 </script>
 
-
 <style scoped>
-.teacher-link {
-  color: #8a6a4d;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 0.3rem 0.6rem;
-  border-radius: 12px;
-  display: inline-block;
-  transition: background-color 0.2s, color 0.2s;
+.page-container {
+  padding: 60px 30px;
 }
 
-.teacher-link:hover {
-  background-color: #eee0d4;
-  color: #5c4431;
+.type-card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.teacher-related ul {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0;
+.type-image {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 0;
 }
 
-.teacher-related li {
-  margin-bottom: 0.3rem;
+.type-info {
+  max-width: 600px;
+  flex: 1;
 }
 
+.type-name {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #322A2A;
+}
+
+.type-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 15px;
+}
 </style>

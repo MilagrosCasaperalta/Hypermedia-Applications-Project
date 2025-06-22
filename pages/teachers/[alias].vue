@@ -23,16 +23,21 @@
     <p>Loading teacher info...</p>
   </div>
 
-      <section class="activity-section">
+  
+      <div>
+        <h3>Related activities</h3>
+      </div>
       <div id="card-container">
         <TheSmallCard 
-          v-for="activity in teacher.activities" 
-          :title="activity.activities.name"
-          :subtitle="activity.activities.start_time"
-          :link="'/activities/' + activity.activities.alias" 
+          v-for="activity in related" 
+          :name="activity.name"
+          :schedule="activity.schedule"
+          :location="activity.location"
+          :type="activity.types.name"
+          :typeLink="`/activities/${activity.types.alias}`"
         />
       </div>
-    </section>
+
 </template>
 
 <script setup>
@@ -40,6 +45,12 @@ import '~/assets/css/activity-page.css'
 const route = useRoute()
 const alias = route.params.alias
 const { data: teacher, error } = await useFetch('/api/teachers/' + alias)
+const { data: activities } = await useFetch('/api/activities/all')
+
+const related = activities.value.filter(activity =>
+  activity.teachers?.some(t => t.teachers?.alias === alias)
+)
+console.log(related)
 </script>
 
 <style scoped>

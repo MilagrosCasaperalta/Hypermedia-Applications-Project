@@ -2,107 +2,59 @@
   <main>
     <section class="activity-section">
       <h1>Meet Our Activities</h1>
+
       <div>
-        <h3>Pilates</h3>
+        <h3>Course</h3>
       </div>
       <div id="card-container">
         <TheSmallCard 
-          v-for="activity in pilates" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
+          v-for="activity in courses" 
+          :key="activity.id"
+          :name="activity.name"
+          :schedule="activity.schedule"
+          :location="activity.location"
+          :teacherList="activity.teachers"
+          :type="activity.types.name"
+          :typeLink="`/activities/${activity.types.alias}`"
         />
       </div>
+
       <div>
-        <h3>Ashtanga Yoga</h3>
+        <h3>Event</h3>
       </div>
       <div id="card-container">
         <TheSmallCard 
-          v-for="activity in ashtanga" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Meditation & Breathwork</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in meditation" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Yoga Therapy</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in therapy" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Hatha Yoga</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in hatha" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Power Yoga</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in power" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Yin Yoga</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in yin" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
-        />
-      </div>
-      <div>
-        <h3>Vinyasa Flow</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in vinyasa" 
-          :title="activity.name"
-          :subtitle="activity.start_time"
-          :link="'/activities/' + activity.alias" 
+          v-for="activity in event" 
+          :key="activity.id"
+          :name="activity.name"
+          :schedule="activity.schedule"
+          :location="activity.location"
+          :teacherList="activity.teachers"
+          :type="activity.types.name"
+          :typeLink="`/activities/${activity.types.alias}`"
         />
       </div>
     </section>
   </main>
 </template>
 
+
 <script setup>
-const { data: activities } = await useFetch('/api/activities')
-const pilates = activities.value.filter(activity => activity.type === 'Pilates')
-const ashtanga = activities.value.filter(activity => activity.type === 'Ashtanga Yoga')
-const meditation = activities.value.filter(activity => activity.type === 'Meditation & Breathwork')
-const therapy = activities.value.filter(activity => activity.type === 'Yoga Therapy')
-const hatha = activities.value.filter(activity => activity.type === 'Hatha Yoga')
-const power = activities.value.filter(activity => activity.type === 'Power Yoga')
-const yin = activities.value.filter(activity => activity.type === 'Yin Yoga')
-const vinyasa = activities.value.filter(activity => activity.type === 'Vinyasa Flow')
+const { data: activities } = await useFetch('/api/activities/all')
+
+const courses = activities.value.filter(activities =>
+  activities.types.name === 'Ashtanga' ||
+  activities.types.name === 'Pilates' ||
+  activities.types.name === 'Meditation' ||
+  activities.types.name === 'Therapy'
+)
+
+const event = activities.value.filter(activities =>
+  activities.types.name === 'Seminar' ||
+  activities.types.name === 'Workshop' ||
+  activities.types.name === 'Retreat' ||
+  activities.types.name === 'Lecture'
+)
+
 
 </script>

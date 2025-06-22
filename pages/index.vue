@@ -10,35 +10,10 @@
       </div>
     </section>
 
-    <section class="activity-section">
-      <h1>Meet Our promoting activities</h1>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in activities" 
-          :title="activity.activities.name"
-          :subtitle="activity.ads"
-          :link="'/activities/' + activity.activities.alias" 
-        />
-      </div>
-    </section>
 
     <section class="section about">
       <h2>Why Choose SoulFlow?</h2>
       <p>We are more than a studio — we are a sanctuary. A place where movement, breath, and stillness meet to create harmony in your life.</p>
-    </section>
-
-    <section class="section classes">
-      <h2>Our Classes</h2>
-      <div class="card-grid">
-        <NuxtLink
-          v-for="(c, i) in classes"
-          :key="i"
-          :to="'/activities'"
-          class="card-link"
-        >
-          <Card :title="c.title" :path="c.path" />
-        </NuxtLink>
-      </div>
     </section>
 
     <section class="section cta">
@@ -47,19 +22,40 @@
       <NuxtLink to="/contact" class="btn-secondary">Contact Us</NuxtLink>
     </section>
 
+    <section class="Up_Coming">
+      <div>
+        <h3>Upcoming</h3>
+      </div>
+      <div id="card-container">
+        <TheSmallCard 
+          v-for="activity in event" 
+          :key="activity.id"
+          :name="activity.name"
+          :schedule="activity.schedule"
+          :location="activity.location"
+          :teacherList="activity.teachers"
+          :type="activity.types.name"
+          :typeLink="`/activities/${activity.types.alias}`"
+        />
+      </div>
+    </section>
+
   </div>
 </template>
 
 <script setup>
-import Card from '@/components/TheCard.vue'
 
-const classes = [
-  { title: 'Ashtanga Yoga', path: '/img/classes/ashtanga.png' },
-  { title: 'Yoga Therapy', path: '/img/classes/therapy.png' },
-  { title: 'Meditation & Breathwork', path: '/img/classes/meditation.png' },
-  { title: 'Pilates', path: '/img/classes/pilates.png' },
-]
-const { data: activities } = await useFetch('/api/highlight')
+const { data: activities } = await useFetch('/api/activities/all')
+const event = activities.value.filter(activities =>
+  activities.types.name === 'Seminar' ||
+  activities.types.name === 'Workshop' ||
+  activities.types.name === 'Retreat' ||
+  activities.types.name === 'Lecture'
+).sort((b, a) => new Date(b.schedule) - new Date(a.schedule))
+  .slice(0, 5);
+
+const { data: highlight } = await useFetch('/api/highlight')
+
 </script>
 
 <style scoped>

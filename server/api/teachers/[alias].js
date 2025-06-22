@@ -10,20 +10,8 @@ export default eventHandler(async (event) => {
       alias,
       description,
       role,
-      name,
-      activities:
-      teachers_activities (
-        activities (
-          id,
-          name,
-          alias,
-          start_time
-        )
-      )
+      name
     `)
     .eq('alias', alias).single()
-
-
-    console.log(data)
         return data
 })
