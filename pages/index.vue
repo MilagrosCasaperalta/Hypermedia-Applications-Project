@@ -4,23 +4,37 @@
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
-        <h1>Welcome to SoulFlow NYC</h1>
+        <h1>SoulFlow NYC</h1>
         <p>Find your flow. Connect, breathe, and transform in the heart of New York City.</p>
-        <NuxtLink to="/about" class="btn-primary">Learn More</NuxtLink>
+      <NuxtLink to="/about" class="btn-primary">Learn More</NuxtLink>
       </div>
     </section>
 
 
-    <section class="section about">
-      <h2>Why Choose SoulFlow?</h2>
-      <p>We are more than a studio — we are a sanctuary. A place where movement, breath, and stillness meet to create harmony in your life.</p>
-    </section>
+ <section class="section about">
 
-    <section class="section cta">
-      <h2>Ready to Begin Your Journey?</h2>
-      <p>We can't wait to welcome you.</p>
-      <NuxtLink to="/contact" class="btn-secondary">Contact Us</NuxtLink>
-    </section>
+  <h2>Why SoulFlow NYC?</h2>
+  <p>
+    SoulFlow is not just a studio; it's your refuge from the noise.
+     Here, mindful movement, intentional breath, and moments of stillness come 
+     together to restore balance and awaken your inner rhythm. Step inside, and discover 
+     a space designed to nourish your body, calm your mind, and uplift your spirit.
+  </p>
+   <NuxtLink to="/activities" class="btn-secondary">Want to know more?</NuxtLink>
+ 
+</section>
+
+<section class="section teachers">
+  <TheParagraph 
+  image='/img/home/teachers.png'
+   position="right">
+  <h2>Meet the Soul Behind the Flow</h2>
+  <p>Get to know our dedicated teachers, each bringing their own experience, heart, and unique style to guide you through your practice.</p>
+  <NuxtLink to="/teachers" class="btn-third">Meet our team</NuxtLink>
+  </TheParagraph>
+
+</section>
+
 
     <section class="Up_Coming">
       <div>
@@ -82,7 +96,7 @@ const { data: highlight } = await useFetch('/api/highlight')
 
 .hero {
   position: relative;
-  background-image: url('/img/hero.png');
+  background-image: url('/img/home/hero.png');
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -136,9 +150,21 @@ const { data: highlight } = await useFetch('/api/highlight')
   text-align: center;
 }
 
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  text-align: center;
+  background-color: #5e39137c;
+  color: white;
+}
+
 .about p {
+  text-align: center;
   max-width: 800px;
-  margin: 0 auto;
+  justify-content: center;
   font-size: 1.1rem;
 }
 
@@ -159,7 +185,18 @@ const { data: highlight } = await useFetch('/api/highlight')
 }
 
 .btn-secondary {
-  background-color: #322A2A;
+  background-color: #3e3831a1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.btn-third {
+  background-color: #3e3831a1;
   color: white;
   padding: 10px 20px;
   border-radius: 6px;

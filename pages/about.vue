@@ -99,7 +99,6 @@ export default {
         font-size: 1.2rem;
         color: #000000;
         text-align: center;
-        
     }
 
 
