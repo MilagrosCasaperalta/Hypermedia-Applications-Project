@@ -29,7 +29,12 @@
   image='/img/home/teachers.png'
    position="right">
   <h2>Meet the Soul Behind the Flow</h2>
-  <p>Get to know our dedicated teachers, each bringing their own experience, heart, and unique style to guide you through your practice.</p>
+  <p>Meet our passionate team of teachers, each one bringing 
+  a wealth of experience, a deep commitment to mindful movement, 
+  and their own distinctive teaching style. With compassion, 
+  authenticity, and heart, they’re here to support you on every 
+  step of your journey, helping you grow, heal, and reconnect 
+  through your practice.</p>
   <NuxtLink to="/teachers" class="btn-third">Meet our team</NuxtLink>
   </TheParagraph>
 
@@ -161,9 +166,16 @@ const { data: highlight } = await useFetch('/api/highlight')
   color: white;
 }
 
-.about p {
+ .about p {
   text-align: center;
   max-width: 800px;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+ .teachers p {
+  text-align: center;
+  max-width: 600px;
   justify-content: center;
   font-size: 1.1rem;
 }
