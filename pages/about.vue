@@ -8,7 +8,7 @@
             
                 <div>
                   
-                        <h2>How it started</h2>
+                    <h2>How it started</h2>
              
                     Nestled in the heart of New York City, SoulFlow NYC began as a simple idea:
                     to create a sanctuary for stillness in a city that never slows down.
@@ -85,10 +85,9 @@ export default {
 <style scoped>
 
     h2 {
-      color: #000000;
+      color: #735741;
       font-family: 'Poppins', sans-serif;
-      font-weight: 550;
-      text-transform: uppercase;
+      font-weight: 500;
       letter-spacing: 0.5px;
     }
 
@@ -98,7 +97,8 @@ export default {
         font-weight: 300;
         font-size: 1.2rem;
         color: #000000;
-        text-align: center;
+        text-align: left;
+        padding: 15px;
     }
 
 

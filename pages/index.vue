@@ -43,20 +43,21 @@
 
     <section class="Up_Coming">
       <div>
-        <h3>Upcoming</h3>
+        <h2>What's next?</h2>
+        <h3>Step into something greater than just a class. 
+          Be part of a vibrant community coming together through 
+          soulful events, mindful movement, and shared transformation.
+          Explore what’s coming next at SoulFlow NYC and find your place in a 
+          journey that nourishes, connects, and inspires.</h3>
       </div>
       <div id="card-container">
         <TheSmallCard 
           v-for="activity in event" 
           :key="activity.id"
           :name="activity.name"
-          :schedule="activity.schedule"
-          :location="activity.location"
-          :teacherList="activity.teachers"
-          :type="activity.types.name"
           :typeLink="`/activities/${activity.types.alias}`"
         />
-      </div>
+         </div>
     </section>
     <section class="highlight">
       <div>
@@ -69,8 +70,6 @@
           :ads="activity.ads"
           :schedule="activity.activities.schedule"
           :location="activity.activities.location"
-          :teacherList="activity.activities.teachers_activities"
-          :type="activity.activities.types.name"
           :typeLink="`/activities/${activity.activities.types.alias}`"
         />
       </div>
@@ -216,6 +215,48 @@ const { data: highlight } = await useFetch('/api/highlight')
   font-weight: 600;
   margin-top: 20px;
   display: inline-block;
+}
+
+.Up_Coming{
+ background-color: #5e39137c;
+ max-width: 1200px;
+ text-align: center;
+ margin: 0 auto;       
+padding: 30px;
+ border-radius: 50px;
+}
+
+
+.Up_Coming h2{
+ font-size: 1.7rem;
+  color : white;
+ 
+}
+
+.Up_Coming h3{
+ font-size: 1.1rem;
+color : white;
+}
+
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px; 
+  margin-top: 30px;
+}
+
+#card-container > * {
+  background-color: #5e3913b3;  
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  max-width: 200px;     
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  text-align: center;
+  
 }
 
 </style>

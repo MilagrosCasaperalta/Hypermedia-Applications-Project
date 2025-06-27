@@ -43,8 +43,8 @@ const breadcrumbs = computed(() => {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
-  font-size: 0.875rem;
+  margin: 1rem 3%;
+  font-size: 2.2rem;
   font-family: 'Segoe UI', sans-serif;
   color: #8a6a4d;
   flex-wrap: wrap;
