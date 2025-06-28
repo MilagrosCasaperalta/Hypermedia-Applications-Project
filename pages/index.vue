@@ -20,7 +20,7 @@
      together to restore balance and awaken your inner rhythm. Step inside, and discover 
      a space designed to nourish your body, calm your mind, and uplift your spirit.
   </p>
-   <NuxtLink to="/activities" class="btn-secondary">Want to know more?</NuxtLink>
+   <NuxtLink to="/about" class="btn-secondary">Want to know more?</NuxtLink>
  
 </section>
 
@@ -40,6 +40,19 @@
 
 </section>
 
+ <section class="courses">
+      <div>
+        <h2>Don't know where to start?</h2>
+      </div>
+      <div id="card-container">
+        <TheSmallCard 
+          v-for="activity in highlight" 
+          :name="activity.activities.name"
+          :ads="activity.ads"
+          :typeLink="`/activities/${activity.activities.types.alias}`"
+        />
+      </div>
+    </section>
 
     <section class="Up_Coming">
       <div>
@@ -59,23 +72,19 @@
         />
          </div>
     </section>
-    <section class="highlight">
-      <div>
-        <h3>Highlight</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in highlight" 
-          :name="activity.activities.name"
-          :ads="activity.ads"
-          :schedule="activity.activities.schedule"
-          :location="activity.activities.location"
-          :typeLink="`/activities/${activity.activities.types.alias}`"
-        />
-      </div>
-    </section>
-
   </div>
+
+  <section class="contact">
+    <TheParagraph 
+  image='/img/home/teachers.png'
+   position="left">
+  <h2>Contact us</h2>
+  <p></p>
+  <NuxtLink to="/contact" class="btn-third">Contact us</NuxtLink>
+  </TheParagraph>
+
+
+  </section>
 </template>
 
 <script setup>
@@ -195,6 +204,10 @@ const { data: highlight } = await useFetch('/api/highlight')
   background-color: #fdfaf6;
 }
 
+.courses h2{
+  text-align: center;
+}
+
 .btn-secondary {
   background-color: #3e3831a1;
   color: white;
@@ -221,8 +234,8 @@ const { data: highlight } = await useFetch('/api/highlight')
  background-color: #5e39137c;
  max-width: 1200px;
  text-align: center;
- margin: 0 auto;       
-padding: 30px;
+ margin: 10 auto;       
+ padding: 30px;
  border-radius: 50px;
 }
 
