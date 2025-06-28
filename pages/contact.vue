@@ -1,5 +1,5 @@
 import TheMap from '~/components/TheMap.vue'
-
+import ContactForm from '~/components/ContactForm.vue'
 
 <template>
    <section class="hero">
@@ -11,6 +11,7 @@ import TheMap from '~/components/TheMap.vue'
     </section>
 
     <TheMap />
+    <ContactForm />
 
   </template>
 

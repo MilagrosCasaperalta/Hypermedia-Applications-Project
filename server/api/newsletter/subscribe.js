@@ -44,7 +44,7 @@ export default eventHandler(async (event) => {
   await transporter.sendMail({
     from: `"Yoga Studio" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: 'You are now subscribed! 🧘‍♀️',
+    subject: 'You are now subscribed!',
     html: `
       <h2>Thank you for joining!</h2>
       <p>You'll start receiving news, events and class updates soon.</p>
