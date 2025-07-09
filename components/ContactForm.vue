@@ -18,12 +18,12 @@
           id="problem"
           v-model="formData.problem"
           required
-          placeholder="Please, write as much detail as possible"
+          placeholder="Please, write here your message"
         ></textarea>
       </div>
       <input type="hidden" name="Status" value="new" />
       <div class="form-actions">
-        <button type="submit" :disabled="loading">{{ loading ? 'Submitting...' : 'Submit Ticket' }}</button>
+        <button type="submit" :disabled="loading">{{ loading ? 'Submitting...' : 'Submit' }}</button>
       </div>
     </form>
     <p v-if="message" :class="{ success: success, error: !success }">{{ message }}</p>
@@ -66,12 +66,13 @@ async function handleSubmit() {
 
 <style scoped>
 .contact-form-container {
-  max-width: 800px;
+  max-width: 600px; /* Ridotto per essere più compatto */
   margin: 2rem auto;
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .form-title {
@@ -79,39 +80,42 @@ async function handleSubmit() {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
+  font-weight: 600;
 }
 
 .contact-form {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column; /* Disposizione verticale */
+  gap: 15px; /* Ridotto lo spazio tra i campi */
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1 1 45%;
 }
 
 label {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #333;
+  font-weight: 500;
 }
 
 input[type="email"],
 textarea {
-  padding: 8px 14px;
-  font-size: 0.9rem;
+  padding: 12px 16px;
+  font-size: 1rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
-  transition: border 0.3s ease;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 input[type="email"]:focus,
 textarea:focus {
   border: 1px solid #4CAF50;
+  box-shadow: 0 2px 8px rgba(0, 128, 0, 0.2);
 }
 
 textarea {
@@ -123,39 +127,42 @@ textarea {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  flex: 1 1 100%;
 }
 
 button {
-  padding: 12px 20px;
-  background-color: #8a6a4d; /* Same color as the 'Join' button in the newsletter */
+  padding: 12px 24px;
+  background-color: #8a6a4d;
   color: white;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:disabled {
   background-color: #bfae9a;
+  cursor: not-allowed;
 }
 
 button:hover:not(:disabled) {
-  background-color: #7a5e3c; /* Darker shade for hover effect */
+  background-color: #7a5e3c;
+  transform: translateY(-2px);
 }
 
 p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 p.success {
   color: #27ae60;
+  font-weight: 500;
 }
 
 p.error {
   color: #e74c3c;
+  font-weight: 500;
 }
 </style>
