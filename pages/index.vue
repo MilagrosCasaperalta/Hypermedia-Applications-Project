@@ -44,11 +44,10 @@
       <h2>Don't know where to start?</h2>
       <div id="card-container">
         <TheSmallCard 
-          v-for="activity in highlight" 
-          :key="activity.activities.name"
-          :name="activity.activities.name"
-          :ads="activity.ads"
-          :typeLink="`/activities/${activity.activities.types.alias}`"
+          v-for="highlight in highlights" 
+          :title="highlight.courses.name"
+          :subtitle="highlight.ads"
+          :link="`/activities/courses/${highlight.courses.alias}`" 
         />
       </div>
     </section>
@@ -64,10 +63,10 @@
           journey that nourishes, connects, and inspires.</h3>
         <div id="card-container">
           <TheSmallCard 
-            v-for="activity in event" 
-            :key="activity.id"
-            :name="activity.name"
-            :typeLink="`/activities/${activity.types.alias}`"
+            v-for="event in events" 
+            :title="event.name"
+            :subtitle="event.schedule"
+            :link="`/activities/events/${event.alias}`" 
           />
         </div>
       </div>
@@ -94,16 +93,11 @@
 <script setup>
 import ContactForm from '~/components/ContactForm.vue';  // Import the ContactForm component
 
-const { data: activities } = await useFetch('/api/activities/all')
-const event = activities.value.filter(activities =>
-  activities.types.name === 'Seminar' ||
-  activities.types.name === 'Workshop' ||
-  activities.types.name === 'Retreat' ||
-  activities.types.name === 'Lecture'
-).sort((b, a) => new Date(b.schedule) - new Date(a.schedule))
+const { data: activities } = await useFetch('/api/activities/events')
+const events = activities.value.sort((b, a) => new Date(b.schedule) - new Date(a.schedule))
   .slice(0, 5);
 
-const { data: highlight } = await useFetch('/api/highlight')
+const { data: highlights } = await useFetch('/api/highlight')
 </script>
 
 <style scoped>
