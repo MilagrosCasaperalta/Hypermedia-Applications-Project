@@ -8,8 +8,8 @@
           v-for="course in courses" 
           :title="course.name"
           :subtitle="course.schedule"
-          :link="'/'" 
-          :path="`/img/teachers/1.png`" 
+          :link="`/activities/courses/${course.alias}`" 
+          :path="`/img/activities/courses/${course.alias}.jpg`" 
         />
       </div>
     </section>
@@ -20,8 +20,8 @@
           v-for="event in events" 
           :title="event.name"
           :subtitle="event.schedule"
-          :link="'/'" 
-          :path="`/img/teachers/1.png`" 
+          :link="`/activities/courses/${event.alias}`" 
+          :path="`/img/activities/events/${event.alias}.jpg`" 
         />
       </div>
     </section>

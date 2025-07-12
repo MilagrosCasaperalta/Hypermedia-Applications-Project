@@ -36,7 +36,6 @@
 <script setup>
 const route = useRoute()
 const alias = route.params.alias
-console.log(alias)
 const { data: event } = await useFetch('/api/activities/events/' + alias)
 </script>
 
