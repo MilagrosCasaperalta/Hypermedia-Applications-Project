@@ -1,36 +1,49 @@
 <template>
-  <div class="card">
-    <h2 v-if="name">{{ name }}</h2>
-    <h2 v-if="ads">{{ ads }}</h2>
-    <p v-if="location"><strong>Location:</strong> {{ location }}</p>
-    <p v-if="schedule"><strong>Schedule:</strong> {{ schedule }}</p>
-
-    <p v-if="teacherList && teacherList.length">
-      <strong>Teacher(s):</strong>
-      <span v-for="(teacher, index) in teacherList">
-        <NuxtLink :to="`/teachers/${teacher.teachers.alias}`">{{ teacher.teachers.name }}</NuxtLink>
-        <span v-if="index < teacherList.length - 1">, </span>
-      </span>
-    </p>
-
-    <p v-if="type && typeLink">
-      <strong>Type:</strong>
-      <NuxtLink :to="typeLink">{{ type }}</NuxtLink>
-    </p>
-  </div>
+  <NuxtLink :to="link" class="card clickable-card">
+    <span v-if="title" class="title">{{ title }}</span>
+    <span v-if="subtitle" class="subtitle">{{ subtitle }}</span>
+  </NuxtLink>
 </template>
 
 <script setup>
-const props = defineProps({
-  name: String,
-  location: String,
-  ads: String,
-  schedule: String,
-  teacherList: {
-    type: Array,
-    default: () => []
-  },
-  type: String,
-  typeLink: String
-});
+const props = defineProps(['title', 'subtitle', 'link'])
 </script>
+
+<style scoped>
+.card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.clickable-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.clickable-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 16px 0 6px 0;
+  color: #4b3a2a; /* marrone scuro */
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.subtitle {
+  display: block;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #7c6751; /* marrone medio */
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+</style>

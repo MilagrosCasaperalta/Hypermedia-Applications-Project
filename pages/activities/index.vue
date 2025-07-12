@@ -1,58 +1,34 @@
 <template>
   <main>
-    <section class="activity-section">
-      <h1>Meet Our Activities</h1>
-
-      <div>
-        <h3>Course</h3>
-      </div>
+    <h1>Our Activities</h1>
+    <section class="card-section">
+      <h3>Our Courses</h3>
       <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in courses" 
-          :name="activity.name"
-          :schedule="activity.schedule"
-          :location="activity.location"
-          :teacherList="activity.teachers"
-          :type="activity.types.name"
-          :typeLink="`/activities/${activity.types.alias}`"
+        <TheCard 
+          v-for="course in courses" 
+          :title="course.name"
+          :subtitle="course.schedule"
+          :link="`/activities/courses/${course.alias}`" 
+          :path="`/img/activities/courses/${course.alias}.jpg`" 
         />
       </div>
-
-      <div>
-        <h3>Event</h3>
-      </div>
+    </section>
+    <section class="card-section">
+      <h3>Our Events</h3>
       <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in event" 
-          :name="activity.name"
-          :schedule="activity.schedule"
-          :location="activity.location"
-          :teacherList="activity.teachers"
-          :type="activity.types.name"
-          :typeLink="`/activities/${activity.types.alias}`"
+        <TheCard 
+          v-for="event in events" 
+          :title="event.name"
+          :subtitle="event.schedule"
+          :link="`/activities/events/${event.alias}`" 
+          :path="`/img/activities/events/${event.alias}.jpg`" 
         />
       </div>
     </section>
   </main>
 </template>
 
-
 <script setup>
-const { data: activities } = await useFetch('/api/activities/all')
-
-const courses = activities.value.filter(activities =>
-  activities.types.name === 'Ashtanga' ||
-  activities.types.name === 'Pilates' ||
-  activities.types.name === 'Meditation' ||
-  activities.types.name === 'Therapy'
-)
-
-const event = activities.value.filter(activities =>
-  activities.types.name === 'Seminar' ||
-  activities.types.name === 'Workshop' ||
-  activities.types.name === 'Retreat' ||
-  activities.types.name === 'Lecture'
-)
-
-
+const { data: courses } = await useFetch('/api/activities/courses')
+const { data: events } = await useFetch('/api/activities/events')
 </script>

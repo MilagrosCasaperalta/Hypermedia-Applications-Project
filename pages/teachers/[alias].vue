@@ -3,14 +3,12 @@
     <Head>
       <title>{{ teacher.name }} | Teacher Profile</title>
     </Head>
-
     <div class="teacher-card">
       <img
         :src="`/img/teachers/${teacher.id}.png`"
         :alt="`${teacher.name} portrait`"
         class="teacher-image"
       />
-
       <div class="teacher-info">
         <h1 class="teacher-name">{{ teacher.name }}</h1>
         <h2 class="teacher-role">{{ teacher.role }}</h2>
@@ -23,37 +21,49 @@
     <p>Loading teacher info...</p>
   </div>
 
-  
-      <div>
-        <h3>Related activities</h3>
-      </div>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="activity in related" 
-          :name="activity.name"
-          :schedule="activity.schedule"
-          :location="activity.location"
-          :type="activity.types.name"
-          :typeLink="`/activities/${activity.types.alias}`"
-        />
-      </div>
-
+  <section class="small-card-section">
+    <h2>Related Activities</h2>
+    <div id="card-container">
+      <TheSmallCard 
+        v-for="course in filteredCourses"
+        :title="course.name"
+        :subtitle="course.schedule"
+        :link="`/activities/courses/${course.alias}`"
+      />
+      <TheSmallCard 
+        v-for="event in filteredEvents"
+        :title="event.name"
+        :subtitle="event.schedule"
+        :link="`/activities/events/${event.alias}`"
+      />
+    </div>
+  </section>
 </template>
 
 <script setup>
 import '~/assets/css/activity-page.css'
 const route = useRoute()
 const alias = route.params.alias
-const { data: teacher, error } = await useFetch('/api/teachers/' + alias)
-const { data: activities } = await useFetch('/api/activities/all')
-
-const related = activities.value.filter(activity =>
-  activity.teachers?.some(t => t.teachers?.alias === alias)
+const { data: teacher } = await useFetch('/api/teachers/' + alias)
+const { data: courses } = await useFetch('/api/activities/courses')
+const { data: events } = await useFetch('/api/activities/events')
+const filteredCourses = courses.value.filter(course =>
+  course.courses_teachers?.some(ct => ct.teachers?.alias === alias)
 )
-console.log(related)
+const filteredEvents = events.value.filter(event =>
+  event.events_teachers?.some(et => et.teachers?.alias === alias)
+)
 </script>
 
 <style scoped>
+#card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px; 
+  margin-top: 30px;
+}
+
 .page-container {
   padding: 60px 30px;
 }

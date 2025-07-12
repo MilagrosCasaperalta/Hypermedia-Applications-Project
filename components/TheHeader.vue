@@ -10,8 +10,8 @@
         <li class="dropdown">
           <NuxtLink to="/activities" class="drop">Our activities</NuxtLink>
           <ul class="drop-content">
-            <li><NuxtLink to="/activities/course">Course</NuxtLink></li>
-            <li><NuxtLink to="/activities/event">Event</NuxtLink></li>                                             
+            <li><NuxtLink to="/activities/courses/">Course</NuxtLink></li>
+            <li><NuxtLink to="/activities/events/">Event</NuxtLink></li>                                             
           </ul>
         </li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
