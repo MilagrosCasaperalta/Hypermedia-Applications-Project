@@ -13,7 +13,7 @@
         <h2 class="information-subtitle">{{ event.schedule }}</h2>
         <h2 class="information-subtitle">
             <span v-for="(teacher, index) in event.events_teachers" :key="teacher.teachers.id">
-              <a :href="'/teachers/' + teacher.teachers.id" class="teacher-link">
+              <a :href="'/teachers/' + teacher.teachers.id" class="information-link">
                 {{ teacher.teachers.name }}
               </a>
               <span v-if="index < event.events_teachers.length - 1">, </span>

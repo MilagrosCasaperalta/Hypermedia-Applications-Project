@@ -4,10 +4,10 @@
       <h1>Our Event</h1>
       <div id="card-container">
         <TheCard 
-          v-for="course in courses" 
-          :title="course.name"
-          :subtitle="course.schedule"
-          :link="`/activities/events/${course.alias}`" 
+          v-for="event in events" 
+          :title="event.name"
+          :subtitle="event.schedule"
+          :link="`/activities/events/${event.alias}`" 
           :path="`/img/teachers/1.png`" 
         />
       </div>
@@ -16,5 +16,5 @@
 </template>
 
 <script setup>
-const { data: courses } = await useFetch('/api/activities/events/')
+const { data: events } = await useFetch('/api/activities/events/')
 </script>

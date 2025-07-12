@@ -12,12 +12,12 @@
         <h2 class="information-subtitle">{{ course.location }}</h2>
         <h2 class="information-subtitle">{{ course.schedule }}</h2>
         <h2 class="information-subtitle">
-            <span v-for="(teacher, index) in course.courses_teachers">
-              <a :href="'/teachers/' + teacher.teachers.alias" class="teacher-link">
-                {{ teacher.teachers.name }}
-              </a>
-              <span v-if="index < course.courses_teachers.length - 1">, </span>
-            </span>
+          <span v-for="(teacher, index) in course.courses_teachers">
+            <a :href="'/teachers/' + teacher.teachers.alias" class="information-link">
+              {{ teacher.teachers.name }}
+            </a>
+            <span v-if="index < course.courses_teachers.length - 1">, </span>
+          </span>
           </h2>
         <p class="information-description">{{ course.description }}</p>
       </div>
