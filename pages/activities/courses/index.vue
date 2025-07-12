@@ -8,7 +8,7 @@
           :title="course.name"
           :subtitle="course.schedule"
           :link="`/activities/courses/${course.alias}`" 
-          :path="`/img/teachers/1.png`" 
+          :path="`/img/activities/courses/${course.alias}.jpg`" 
         />
       </div>
     </section>

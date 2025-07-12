@@ -1,8 +1,11 @@
 <template>
   <div class="page-container" v-if="course">
+        <Head>
+      <title>{{ course.name }} | Course Information</title>
+    </Head>
     <div class="information-card">
       <img
-        :src="`/img/teachers/1.png`"
+        :src="`/img/activities/courses/${course.alias}.jpg`"
         :alt="`${course.name} portrait`"
         class="information-image"
       />

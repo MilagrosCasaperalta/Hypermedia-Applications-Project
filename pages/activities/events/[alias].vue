@@ -2,7 +2,7 @@
   <div class="page-container" v-if="event">
     <div class="information-card">
       <img
-        :src="`/img/teachers/1.png`"
+        :src="`/img/activities/events/${event.alias}.jpg`"
         :alt="`${event.name} portrait`"
         class="information-image"
       />
@@ -12,8 +12,8 @@
         <h2 class="information-subtitle">{{ event.location }}</h2>
         <h2 class="information-subtitle">{{ event.schedule }}</h2>
         <h2 class="information-subtitle">
-            <span v-for="(teacher, index) in event.events_teachers" :key="teacher.teachers.id">
-              <a :href="'/teachers/' + teacher.teachers.id" class="information-link">
+            <span v-for="(teacher, index) in event.events_teachers" :key="teacher.teachers.alias">
+              <a :href="'/teachers/' + teacher.teachers.alias" class="information-link">
                 {{ teacher.teachers.name }}
               </a>
               <span v-if="index < event.events_teachers.length - 1">, </span>
