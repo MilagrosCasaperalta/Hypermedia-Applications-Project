@@ -1,6 +1,6 @@
 <template>
   <div class="page-container" v-if="course">
-        <Head>
+    <Head>
       <title>{{ course.name }} | Course Information</title>
     </Head>
     <div class="information-card">
@@ -9,7 +9,6 @@
         :alt="`${course.name} portrait`"
         class="information-image"
       />
-
       <div class="information">
         <h1 class="information-name">{{ course.name }}</h1>
         <h2 class="information-subtitle">{{ course.location }}</h2>
@@ -21,7 +20,7 @@
             </a>
             <span v-if="index < course.courses_teachers.length - 1">, </span>
           </span>
-          </h2>
+        </h2>
         <p class="information-description">{{ course.description }}</p>
       </div>
     </div>
@@ -31,14 +30,24 @@
     <p>Loading info...</p>
   </div>
 
-
-
+  <section class="courses">
+    <h2>Don't know where to start?</h2>
+    <div id="card-container">
+      <TheSmallCard 
+        v-for="highlight in highlights" 
+        :title="highlight.courses.name"
+        :subtitle="highlight.ads"
+        :link="`/activities/courses/${highlight.courses.alias}`" 
+      />
+    </div>
+  </section>
 </template>
 
 <script setup>
 const route = useRoute()
 const alias = route.params.alias
 const { data: course } = await useFetch('/api/activities/courses/' + alias)
+const { data: highlights } = await useFetch('/api/highlight')
 </script>
 
 <style scoped>

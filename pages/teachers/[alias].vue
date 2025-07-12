@@ -3,14 +3,12 @@
     <Head>
       <title>{{ teacher.name }} | Teacher Profile</title>
     </Head>
-
     <div class="teacher-card">
       <img
         :src="`/img/teachers/${teacher.id}.png`"
         :alt="`${teacher.name} portrait`"
         class="teacher-image"
       />
-
       <div class="teacher-info">
         <h1 class="teacher-name">{{ teacher.name }}</h1>
         <h2 class="teacher-role">{{ teacher.role }}</h2>
@@ -23,24 +21,23 @@
     <p>Loading teacher info...</p>
   </div>
 
-    <section class="courses">
-      <h2>Related Activities</h2>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="course in filteredCourses" 
-          :title="course.name"
-          :subtitle="course.schedule"
-          :link="`/activities/courses/${course.alias}`" 
-        />
-        <TheSmallCard 
-          v-for="event in filteredEvents" 
-          :title="event.name"
-          :subtitle="event.schedule"
-          :link="`/activities/events/${event.alias}`" 
-        />
-      </div>
-    </section>
-
+  <section class="small-card-section">
+    <h2>Related Activities</h2>
+    <div id="card-container">
+      <TheSmallCard 
+        v-for="course in filteredCourses"
+        :title="course.name"
+        :subtitle="course.schedule"
+        :link="`/activities/courses/${course.alias}`"
+      />
+      <TheSmallCard 
+        v-for="event in filteredEvents"
+        :title="event.name"
+        :subtitle="event.schedule"
+        :link="`/activities/events/${event.alias}`"
+      />
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -49,19 +46,16 @@ const route = useRoute()
 const alias = route.params.alias
 const { data: teacher } = await useFetch('/api/teachers/' + alias)
 const { data: courses } = await useFetch('/api/activities/courses')
-const { data: events} = await useFetch('/api/activities/events')
+const { data: events } = await useFetch('/api/activities/events')
 const filteredCourses = courses.value.filter(course =>
   course.courses_teachers?.some(ct => ct.teachers?.alias === alias)
 )
 const filteredEvents = events.value.filter(event =>
   event.events_teachers?.some(et => et.teachers?.alias === alias)
 )
-
-
 </script>
 
 <style scoped>
-
 #card-container {
   display: flex;
   flex-wrap: wrap;

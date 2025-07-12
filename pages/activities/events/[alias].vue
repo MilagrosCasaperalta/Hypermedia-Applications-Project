@@ -12,15 +12,14 @@
         <h2 class="information-subtitle">{{ event.location }}</h2>
         <h2 class="information-subtitle">{{ event.schedule }}</h2>
         <h2 class="information-subtitle">
-            <span v-for="(teacher, index) in event.events_teachers" :key="teacher.teachers.alias">
-              <a :href="'/teachers/' + teacher.teachers.alias" class="information-link">
-                {{ teacher.teachers.name }}
-              </a>
-              <span v-if="index < event.events_teachers.length - 1">, </span>
-            </span>
-          </h2>
+          <span v-for="(teacher, index) in event.events_teachers" :key="teacher.teachers.alias">
+            <a :href="'/teachers/' + teacher.teachers.alias" class="information-link">
+              {{ teacher.teachers.name }}
+            </a>
+            <span v-if="index < event.events_teachers.length - 1">, </span>
+          </span>
+        </h2>
         <p class="information-description">{{ event.description }}</p>
-        
       </div>
     </div>
   </div>
@@ -29,14 +28,25 @@
     <p>Loading info...</p>
   </div>
 
-
-
+  <section>
+    <h2>What's next?</h2>
+    <div id="card-container">
+      <TheSmallCard 
+        v-for="event in events" 
+        :title="event.name"
+        :subtitle="event.schedule"
+        :link="`/activities/events/${event.alias}`" 
+      />
+    </div>
+  </section>
 </template>
 
 <script setup>
 const route = useRoute()
 const alias = route.params.alias
 const { data: event } = await useFetch('/api/activities/events/' + alias)
+const { data: activities } = await useFetch('/api/activities/events')
+const events = activities.value.sort((b, a) => new Date(b.schedule) - new Date(a.schedule)).slice(0, 5)
 </script>
 
 <style scoped>

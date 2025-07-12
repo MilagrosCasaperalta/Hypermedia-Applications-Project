@@ -20,7 +20,7 @@
           v-for="event in events" 
           :title="event.name"
           :subtitle="event.schedule"
-          :link="`/activities/courses/${event.alias}`" 
+          :link="`/activities/events/${event.alias}`" 
           :path="`/img/activities/events/${event.alias}.jpg`" 
         />
       </div>
