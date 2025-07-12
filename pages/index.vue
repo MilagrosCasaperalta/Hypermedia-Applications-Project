@@ -205,6 +205,10 @@ const { data: highlight } = await useFetch('/api/highlight')
   text-align: center;
 }
 
+.courses {
+  margin-bottom: 80px;
+}
+
 .btn-secondary, .btn-third {
   background-color: #3e3831a1;
   color: white;
@@ -219,8 +223,8 @@ const { data: highlight } = await useFetch('/api/highlight')
 /* Upcoming Section */
 .Up_Coming {
   background-color: #5e39137c;
-  width: 100%;
-  max-width: 1000px; /* Ensures the content doesn't stretch too far on large screens */
+  width: 90%;
+  /*max-width: 1400px; /* Ensures the content doesn't stretch too far on large screens */
   margin: 0 auto; /* Centers the section */
   padding: 60px 30px;
   display: flex;
@@ -237,7 +241,8 @@ const { data: highlight } = await useFetch('/api/highlight')
   align-items: center;
   justify-content: center;
   text-align: center;
-  max-width: 800px; /* Prevents the content from stretching too wide */
+  width: 100%;
+  /*max-width: 1300px; /* Prevents the content from stretching too wide */
   margin: 0 auto; /* Centers the content */
 }
 
@@ -247,10 +252,11 @@ const { data: highlight } = await useFetch('/api/highlight')
 }
 
 .Up_Coming h3 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: white;
   text-align: center;
-  max-width: 800px;
+  max-width: 1000px;
+  width: 100%;
 }
 
 #card-container {
@@ -301,4 +307,68 @@ const { data: highlight } = await useFetch('/api/highlight')
   height: auto;
   border-radius: 8px;
 }
+
+/* Hero Section */
+.hero-content h1 {
+  font-size: 3.5rem;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+}
+
+/* About Section */
+.about h2 {
+  font-size: 2.2rem;
+}
+
+.about p {
+  font-size: 1.2rem;
+}
+
+/* Teachers Section */
+.teachers h2 {
+  font-size: 2.2rem;
+}
+
+.teachers p {
+  font-size: 1.2rem;
+}
+
+/* Courses Section */
+.courses h2 {
+  font-size: 2.1rem;
+}
+
+/* Upcoming Events Section */
+.Up_Coming h2 {
+  font-size: 2.1rem;
+}
+
+.Up_Coming h3 {
+  font-size: 1.3rem;
+}
+
+/* Card container text */
+#card-container > * {
+  font-size: 0.75rem;
+}
+
+.Up_Coming #card-container {
+  display: flex;
+  flex-wrap: nowrap; /* TUTTE su una riga */
+  justify-content: space-between; /* Spazi tra loro */
+  gap: 16px;
+  width: 100%;
+}
+
+.Up_Coming #card-container > * {
+  flex: 1 1 0; /* Le card crescono e si comprimono */
+  min-width: 160px;
+  max-width: 200px;
+  font-size: 0.75rem;
+  padding: 10px;
+}
+
+
 </style>
