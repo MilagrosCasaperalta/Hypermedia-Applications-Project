@@ -1,4 +1,6 @@
-/* assets/css/main.css */
+html, body {
+  overflow-x: hidden;
+}
 
 body {
     font-family: 'Segoe UI', sans-serif;
