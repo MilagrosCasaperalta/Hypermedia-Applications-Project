@@ -23,7 +23,7 @@
       </div>
       <input type="hidden" name="Status" value="new" />
       <div class="form-actions">
-        <button type="submit" :disabled="loading">{{ loading ? 'Submitting...' : 'Submit' }}</button>
+        <button type="submit" :disabled="loading">{{ loading ? 'Sending...' : 'Send Message' }}</button>
       </div>
     </form>
     <p v-if="message" :class="{ success: success, error: !success }">{{ message }}</p>

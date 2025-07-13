@@ -82,7 +82,7 @@
 
         <!-- Image on the right side -->
         <div class="contact-image-container">
-          <img src="/img/home/teachers.png" alt="SoulFlow Teachers" class="contact-image" />
+          <img src="/img/home/soulflow_studio.png" alt="SoulFlow Studio" class="contact-image" />
         </div>
       </div>
     </section>
@@ -282,12 +282,13 @@ const { data: highlights } = await useFetch('/api/highlight')
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 30px;
 }
 
 .contact-form-container {
   flex: 1;
-  min-width: 250;  /* Ensures it doesn't shrink too much */
+  min-width: 250px;
 }
 
 .contact-image-container {
@@ -297,9 +298,14 @@ const { data: highlights } = await useFetch('/api/highlight')
 }
 
 .contact-image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  max-width: 700px;
+  aspect-ratio: 4 / 3; /* opzionale, ma utile per mantenere proporzioni */
+  object-fit: cover;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Hero Section */

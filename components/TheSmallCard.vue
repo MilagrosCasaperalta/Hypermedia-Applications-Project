@@ -32,7 +32,7 @@ const props = defineProps(['title', 'subtitle', 'link'])
   font-weight: 700;
   font-size: 1.25rem;
   margin: 16px 0 6px 0;
-  color: #4b3a2a; /* marrone scuro */
+  color: #ddd;
   letter-spacing: 0.02em;
   text-transform: capitalize;
 }
@@ -41,7 +41,7 @@ const props = defineProps(['title', 'subtitle', 'link'])
   display: block;
   font-weight: 500;
   font-size: 1rem;
-  color: #7c6751; /* marrone medio */
+  color: #ddd;
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
