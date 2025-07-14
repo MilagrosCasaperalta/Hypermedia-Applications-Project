@@ -1,6 +1,10 @@
 <template>
-  <nav aria-label="breadcrumb">
-    <ul class="breadcrumb">
+  <nav
+    v-if="breadcrumbs.length > 0"
+    aria-label="breadcrumb"
+    class="breadcrumb"
+  >
+    <ul>
       <li v-for="(crumb, index) in breadcrumbs" :key="index">
         <span v-if="index === breadcrumbs.length - 1" class="current">
           {{ crumb.title }}
@@ -19,22 +23,19 @@ import { computed } from 'vue'
 const route = useRoute()
 
 const breadcrumbs = computed(() => {
+  // split path into segments, e.g. '/activities/course' → ['activities','course']
   const segments = route.path.split('/').filter(Boolean)
-  const crumbs = []
-
-  segments.forEach((segment, index) => {
-    const formatted = segment
+  return segments.map((segment, i) => {
+    // Titleize: 'my-page' → 'My Page'
+    const title = segment
       .split('-')
-      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .map(s => s.charAt(0).toUpperCase() + s.slice(1))
       .join(' ')
-
-    crumbs.push({
-      to: '/' + segments.slice(0, index + 1).join('/'),
-      title: formatted
-    })
+    return {
+      to: '/' + segments.slice(0, i + 1).join('/'),
+      title
+    }
   })
-
-  return crumbs
 })
 </script>
 
