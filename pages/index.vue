@@ -1,7 +1,5 @@
 <template>
   <div class="home-page">
-
-    <!-- Hero Section -->
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
@@ -11,364 +9,143 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section class="section about">
-      <h2>Why SoulFlow NYC?</h2>
-      <p>
-        SoulFlow is not just a studio; it's your refuge from the noise.
-        Here, mindful movement, intentional breath, and moments of stillness come 
-        together to restore balance and awaken your inner rhythm. Step inside, and discover 
-        a space designed to nourish your body, calm your mind, and uplift your spirit.
-      </p>
-      <NuxtLink to="/about" class="btn-secondary">Want to know more?</NuxtLink>
+      <div class="container">
+        <h2>Why SoulFlow NYC?</h2>
+        <p>
+          SoulFlow is not just a studio; it's your refuge from the noise.
+          Here, mindful movement, intentional breath, and moments of stillness come
+          together to restore balance and awaken your inner rhythm. Step inside, and discover
+          a space designed to nourish your body, calm your mind, and uplift your spirit.
+        </p>
+        <NuxtLink to="/about" class="btn-secondary">Want to know more?</NuxtLink>
+      </div>
     </section>
 
-    <!-- Teachers Section -->
     <section class="section teachers">
-      <TheParagraph 
-        image='/img/home/teachers.png'
-        position="right">
+      <TheParagraph image="/img/home/teachers.png" position="right">
         <h2>Meet the Soul Behind the Flow</h2>
-        <p>Meet our passionate team of teachers, each one bringing 
-        a wealth of experience, a deep commitment to mindful movement, 
-        and their own distinctive teaching style. With compassion, 
-        authenticity, and heart, they’re here to support you on every 
-        step of your journey, helping you grow, heal, and reconnect 
-        through your practice.</p>
+        <p>
+          Meet our passionate team of teachers, each one bringing a wealth of experience,
+          a deep commitment to mindful movement, and their own distinctive teaching style.
+          With compassion, authenticity, and heart, they’re here to support you on every
+          step of your journey, helping you grow, heal, and reconnect through your practice.
+        </p>
         <NuxtLink to="/teachers" class="btn-third">Meet our team</NuxtLink>
       </TheParagraph>
     </section>
 
-    <!-- Courses Section -->
-    <section class="courses">
-      <h2>Don't know where to start?</h2>
-      <div id="card-container">
-        <TheSmallCard 
-          v-for="highlight in highlights" 
-          :title="highlight.courses.name"
-          :subtitle="highlight.ads"
-          :link="`/activities/courses/${highlight.courses.alias}`" 
-        />
-      </div>
-    </section>
-
-    <!-- Upcoming Events Section -->
-    <section class="Up_Coming">
-      <div class="up-coming-content">
-        <h2>What's next?</h2>
-        <h3>Step into something greater than just a class. 
-          Be part of a vibrant community coming together through 
-          soulful events, mindful movement, and shared transformation.
-          Explore what’s coming next at SoulFlow NYC and find your place in a 
-          journey that nourishes, connects, and inspires.</h3>
-        <div id="card-container">
-          <TheSmallCard 
-            v-for="event in events" 
-            :title="event.name"
-            :subtitle="event.schedule"
-            :link="`/activities/events/${event.alias}`" 
+    <section class="section courses">
+      <div class="container">
+        <h2>Don't know where to start?</h2>
+        <div class="carousel">
+          <TheSmallCard
+            v-for="highlight in highlights"
+            :key="highlight.courses.alias"
+            :title="highlight.courses.name"
+            :subtitle="highlight.ads"
+            :link="`/activities/courses/${highlight.courses.alias}`"
           />
         </div>
       </div>
     </section>
 
-    <!-- Contact Section with Contact Form -->
-    <section class="contact">
-      <div class="contact-container">
-        <!-- ContactForm on the left side -->
+    <section class="section upcoming">
+      <div class="container">
+        <h2>What's next?</h2>
+        <p class="intro">
+          Step into something greater than just a class. Be part of a vibrant community
+          coming together through soulful events, mindful movement, and shared transformation.
+        </p>
+        <div class="carousel">
+          <TheSmallCard
+            v-for="event in events"
+            :key="event.alias"
+            :title="event.name"
+            :subtitle="event.schedule"
+            :link="`/activities/events/${event.alias}`"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="container contact-container">
         <div class="contact-form-container">
           <ContactForm />
         </div>
-
-        <!-- Image on the right side -->
         <div class="contact-image-container">
           <img src="/img/home/soulflow_studio.png" alt="SoulFlow Studio" class="contact-image" />
         </div>
       </div>
     </section>
-    
   </div>
 </template>
 
 <script setup>
-import ContactForm from '~/components/ContactForm.vue';  // Import the ContactForm component
+import ContactForm from '~/components/ContactForm.vue'
+import { computed } from 'vue'
 
 const { data: activities } = await useFetch('/api/activities/events')
-const events = activities.value.sort((b, a) => new Date(b.schedule) - new Date(a.schedule))
-  .slice(0, 5);
+const events = computed(() =>
+  activities.value
+    .sort((a, b) => new Date(a.schedule) - new Date(b.schedule))
+    .slice(0, 5)
+)
 
 const { data: highlights } = await useFetch('/api/highlight')
 </script>
 
 <style scoped>
-.home-page {
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* Hero Section */
-.hero {
-  position: relative;
-  background-image: url('/img/home/hero.png');
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
-  overflow: hidden;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); 
-  z-index: 0;
-}
-
-.hero-content {
-  position: absolute;
-  z-index: 1;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  max-width: 700px;
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.btn-primary {
-  background-color: #b59f4b;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.section {
-  padding: 60px 30px;
-  text-align: center;
-}
-
-.about {
+.home-page { font-family: 'Segoe UI', sans-serif; color: #444 }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px }
+.hero { position: relative; background: url('/img/home/hero.png') center/cover no-repeat; height: 60vh; display: flex; align-items: flex-end }
+.hero .overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5) }
+.hero-content { position: relative; padding: 20px; text-align: center; color: #fff; width: 100% }
+.hero-content h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 10px }
+.hero-content p { font-size: clamp(1rem, 3vw, 1.5rem); margin-bottom: 20px }
+.btn-primary { background-color: #b59f4b; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; display: inline-block; transition: background 0.3s }
+.btn-primary:hover { background-color: #ae8a45 }
+.btn-secondary, .btn-third { background-color: rgba(62, 56, 49, 0.65); color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 600; display: inline-block; transition: background 0.3s }
+.btn-secondary:hover, .btn-third:hover { background-color: rgba(62, 56, 49, 0.8) }
+.section { padding: 60px 0 }
+.about { background-color: rgba(94, 57, 19, 0.5); color: #fff; text-align: center }
+.about h2 { font-size: clamp(1.8rem, 5vw, 2.5rem) }
+.about p { font-size: clamp(1rem, 3vw, 1.2rem); max-width: 800px; margin: 20px auto }
+.section.teachers { display: flex; align-items: center; gap: 40px; padding: 60px 0 }
+@media (max-width: 768px) { .section.teachers { flex-direction: column; text-align: center; gap: 20px; padding: 40px 20px } .section.teachers img { margin: 0 auto; max-width: 80% } .section.teachers p { padding: 0 20px; margin-bottom: 20px } }
+.carousel {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 30px;
-  text-align: center;
-  background-color: #5e39137c;
-  color: white;
-}
-
-.about p {
-  text-align: center;
-  max-width: 800px;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.teachers p {
-  text-align: center;
-  max-width: 600px;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 24px;
+  padding-bottom: 10px;
   margin-top: 30px;
 }
-
-.courses h2 {
-  text-align: center;
-}
-
-.courses {
-  margin-bottom: 80px;
-}
-
-.btn-secondary, .btn-third {
-  background-color: #3e3831a1;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-/* Upcoming Section */
-.Up_Coming {
-  background-color: #5e39137c;
-  width: 90%;
-  /*max-width: 1400px; /* Ensures the content doesn't stretch too far on large screens */
-  margin: 0 auto; /* Centers the section */
-  padding: 60px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 50px;
-}
-
-.up-coming-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  /*max-width: 1300px; /* Prevents the content from stretching too wide */
-  margin: 0 auto; /* Centers the content */
-}
-
-.Up_Coming h2 {
-  font-size: 2rem;
-  color: white;
-}
-
-.Up_Coming h3 {
-  font-size: 1.3rem;
-  color: white;
-  text-align: center;
-  max-width: 1000px;
-  width: 100%;
-}
-
-#card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px; 
-  margin-top: 30px;
-}
-
-#card-container > * {
-  background-color: #5e3913b3;  
-  color: white;
-  padding: 5px;
+.carousel > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  color: #fff;
+  padding: 10px;
   border-radius: 10px;
-  font-size: 0.6rem;
-  max-width: 200px;     
+  font-size: 0.9rem;
+  max-width: 200px;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   text-align: center;
 }
-
-/* Contact Section Styles */
-.contact {
-  padding: 60px 30px;
+@media (min-width: 769px) {
+  .carousel {
+    overflow: visible;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .carousel > * {
+    margin: 0 12px 24px 0;
+  }
 }
-
-.contact-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-}
-
-.contact-form-container {
-  flex: 1;
-  min-width: 250px;
-}
-
-.contact-image-container {
-  flex: 1;
-  min-width: 250px;  /* Ensures it doesn't shrink too much */
-  text-align: center;
-}
-
-.contact-image {
-  width: 100%;
-  height: auto;
-  max-width: 700px;
-  aspect-ratio: 4 / 3; /* opzionale, ma utile per mantenere proporzioni */
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Hero Section */
-.hero-content h1 {
-  font-size: 3.5rem;
-}
-
-.hero-content p {
-  font-size: 1.4rem;
-}
-
-/* About Section */
-.about h2 {
-  font-size: 2.2rem;
-}
-
-.about p {
-  font-size: 1.2rem;
-}
-
-/* Teachers Section */
-.teachers h2 {
-  font-size: 2.2rem;
-}
-
-.teachers p {
-  font-size: 1.2rem;
-}
-
-/* Courses Section */
-.courses h2 {
-  font-size: 2.1rem;
-}
-
-/* Upcoming Events Section */
-.Up_Coming h2 {
-  font-size: 2.1rem;
-}
-
-.Up_Coming h3 {
-  font-size: 1.3rem;
-}
-
-/* Card container text */
-#card-container > * {
-  font-size: 0.75rem;
-}
-
-.Up_Coming #card-container {
-  display: flex;
-  flex-wrap: nowrap; /* TUTTE su una riga */
-  justify-content: space-between; /* Spazi tra loro */
-  gap: 16px;
-  width: 100%;
-}
-
-.Up_Coming #card-container > * {
-  flex: 1 1 0; /* Le card crescono e si comprimono */
-  min-width: 160px;
-  max-width: 200px;
-  font-size: 0.75rem;
-  padding: 10px;
-}
-
-
+.contact-container { display: flex; flex-wrap: wrap; gap: 20px; align-items: center }
+.contact-form-container, .contact-image-container { flex: 1 1 300px }
+.contact-image-container img { width: 100%; border-radius: 8px }
+@media (max-width: 768px) { .hero { height: 50vh } .contact-container { flex-direction: column; align-items: center } .contact-form-container, .contact-image-container { flex: 1 1 100%; max-width: 100% } .contact-image-container img { margin: 0 auto } }
 </style>

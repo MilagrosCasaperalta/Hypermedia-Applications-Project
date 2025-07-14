@@ -1,49 +1,54 @@
 <template>
-  <NuxtLink :to="link" class="card clickable-card">
-    <span v-if="title" class="title">{{ title }}</span>
-    <span v-if="subtitle" class="subtitle">{{ subtitle }}</span>
+  <NuxtLink :to="link" class="card">
+    <div class="card-content">
+      <h3 v-if="title" class="card-title">{{ title }}</h3>
+      <p v-if="subtitle" class="card-subtitle">{{ subtitle }}</p>
+    </div>
   </NuxtLink>
 </template>
 
 <script setup>
-const props = defineProps(['title', 'subtitle', 'link'])
+defineProps({
+  title: String,
+  subtitle: String,
+  link: String
+})
 </script>
 
 <style scoped>
 .card {
-  padding: 1rem;
+  display: block;
+  border-radius: 10px;
+  padding: 1.2rem;
   border: 1px solid #ddd;
   border-radius: 8px;
-  transition: box-shadow 0.2s;
-}
-
-.clickable-card {
-  display: block;
   text-decoration: none;
-  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: white;
 }
-
-.clickable-card:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
-.title {
-  display: block;
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card-title {
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.25rem;
-  margin: 16px 0 6px 0;
-  color: #ddd;
-  letter-spacing: 0.02em;
+  color: #5e3913;
+  margin: 0;
+  line-height: 1.2;
   text-transform: capitalize;
 }
-
-.subtitle {
-  display: block;
+.card-subtitle {
+  font-size: 0.9rem;
   font-weight: 500;
-  font-size: 1rem;
-  color: #ddd;
-  margin-bottom: 16px;
+  margin: 0;
+  color: #8a6a4d;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 }
 </style>
