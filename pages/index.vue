@@ -121,9 +121,78 @@ const { data: highlights } = await useFetch('/api/highlight')
 .about { background-color: rgba(94, 57, 19, 0.5); color: #fff; text-align: center }
 .about h2 { font-size: clamp(1.8rem, 5vw, 2.5rem) }
 .about p { font-size: clamp(1rem, 3vw, 1.2rem); max-width: 800px; margin: 20px auto }
-.section.teachers { display: flex; align-items: center; justify-content: center; gap: 40px; padding: 60px 0; max-width: 1200px; margin: 0 auto;   }
-.teachers-paragraph ::v-deep .paragraph-image { margin-right: 40px; }
-@media (max-width: 768px) { .section.teachers { flex-direction: column; text-align: center; gap: 20px; padding: 40px 20px } .section.teachers img { margin: 0 auto; max-width: 80% } .section.teachers p { padding: 0 20px; margin-bottom: 20px } }
+
+/* Teachers section with fixed spacing */
+.section.teachers { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 40px; 
+  padding: 60px 0; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+/* Override the paragraph component styling specifically for the teachers section */
+.section.teachers .paragraph-container {
+  display: flex !important;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section.teachers .paragraph-image,
+.section.teachers .paragraph-text {
+  float: none !important;
+  width: auto !important;
+}
+
+.section.teachers .paragraph-image {
+  flex: 0 0 40%;
+  max-width: 500px;
+}
+
+.section.teachers .paragraph-text {
+  flex: 1;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) { 
+  .section.teachers { 
+    flex-direction: column; 
+    text-align: center; 
+    gap: 20px; 
+    padding: 40px 20px; 
+  } 
+  
+  .section.teachers .paragraph-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .section.teachers .paragraph-text {
+    padding-left: 0;
+  }
+  
+  .section.teachers .paragraph-image {
+    flex: none;
+    max-width: 80%;
+  }
+  
+  .section.teachers img { 
+    margin: 0 auto; 
+    max-width: 80%; 
+  } 
+  
+  .section.teachers p { 
+    padding: 0 20px; 
+    margin-bottom: 20px; 
+  } 
+}
+
 .carousel {
   display: flex;
   overflow-x: auto;
@@ -157,5 +226,10 @@ const { data: highlights } = await useFetch('/api/highlight')
 .contact-container { display: flex; flex-wrap: wrap; gap: 20px; align-items: center }
 .contact-form-container, .contact-image-container { flex: 1 1 300px }
 .contact-image-container img { width: 100%; border-radius: 8px }
-@media (max-width: 768px) { .hero { height: 50vh } .contact-container { flex-direction: column; align-items: center } .contact-form-container, .contact-image-container { flex: 1 1 100%; max-width: 100% } .contact-image-container img { margin: 0 auto } }
+@media (max-width: 768px) { 
+  .hero { height: 50vh } 
+  .contact-container { flex-direction: column; align-items: center } 
+  .contact-form-container, .contact-image-container { flex: 1 1 100%; max-width: 100% } 
+  .contact-image-container img { margin: 0 auto } 
+}
 </style>
