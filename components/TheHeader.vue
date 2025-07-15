@@ -5,10 +5,10 @@
         <span></span><span></span><span></span>
       </summary>
       <ul class="mobile-nav">
-        <li><NuxtLink to="/activities/courses/">Course</NuxtLink></li>
-        <li><NuxtLink to="/activities/events/">Event</NuxtLink></li>
+        <li><NuxtLink to="/activities/courses/">Courses</NuxtLink></li>
+        <li><NuxtLink to="/activities/events/">Events</NuxtLink></li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/about">About Us</NuxtLink></li>
         <li><NuxtLink to="/contact">Contacts</NuxtLink></li>
       </ul>
     </details>
@@ -23,12 +23,12 @@
         <li class="dropdown">
           <NuxtLink to="/activities" class="drop">Our activities</NuxtLink>
           <ul class="drop-content">
-            <li><NuxtLink to="/activities/courses/">Course</NuxtLink></li>
-            <li><NuxtLink to="/activities/events/">Event</NuxtLink></li>
+            <li><NuxtLink to="/activities/courses/">Courses</NuxtLink></li>
+            <li><NuxtLink to="/activities/events/">Events</NuxtLink></li>
           </ul>
         </li>
         <li><NuxtLink to="/teachers">Our Teachers</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
+        <li><NuxtLink to="/about">About Us</NuxtLink></li>
         <li><NuxtLink to="/contact">Contacts</NuxtLink></li>
       </ul>
     </nav>

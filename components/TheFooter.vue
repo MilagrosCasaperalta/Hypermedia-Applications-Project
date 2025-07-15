@@ -14,7 +14,7 @@
       </div>
 
       <div class="footer-section">
-        <h3>Contact</h3>
+        <h3>Contacts</h3>
         <p>SoulFlowContact@soulflow.com</p>
         <p>(123) 456-7890</p>
         <p>Manhattan, New York, NY</p>
