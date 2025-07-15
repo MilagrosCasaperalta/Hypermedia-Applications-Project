@@ -37,7 +37,7 @@
 
     <section class="section courses">
       <div class="container">
-        <h2>Don't know where to start?</h2>
+        <h2>Highlights</h2>
         <div class="carousel">
           <TheSmallCard
             v-for="highlight in highlights"
