@@ -1,3 +1,4 @@
+ <!-- TheSmallCard is a card without images and title are used to refer the pointed object and subtitle for additional information -->
 <template>
   <NuxtLink :to="link" class="card">
     <div class="card-content">

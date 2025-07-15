@@ -1,3 +1,6 @@
+ <!-- Map component that show the address of yoga center -->
+
+
 <template>
   <section class="contact-map-section">
     <div class="contact-info">

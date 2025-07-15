@@ -1,3 +1,5 @@
+ <!-- The footer -->
+
 <template>
   <footer>
     <div class="footer-content">

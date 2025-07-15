@@ -1,3 +1,5 @@
+ <!-- TheBreadcrumb are the used for orientation inside the web and it is auto-generated -->
+
 <template>
   <nav
     v-if="breadcrumbs.length > 0"

@@ -1,3 +1,5 @@
+ <!-- TheSmallCard is a card with images and title are used to refer the pointed object and subtitle for additional information -->
+
 <template>
   <div class="card">
     <img v-if="path" class="img" :src="path" alt="Card Image" />

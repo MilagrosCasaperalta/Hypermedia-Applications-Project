@@ -1,3 +1,5 @@
+ <!-- The navigator bar -->
+
 <template>
   <header class="site-header">
     <details class="mobile-menu">
