@@ -31,6 +31,14 @@
 </template>
 
 <script setup>
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: Activities & Events',
+  meta: [
+    { name: 'description', content: 'Find your flow. Yoga, breathwork, and community at SoulFlow NYC.' }
+  ]
+})
 const { data: courses } = await useFetch('/api/activities/courses')
 const { data: events }  = await useFetch('/api/activities/events')
 </script>

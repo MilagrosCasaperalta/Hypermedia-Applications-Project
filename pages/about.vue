@@ -75,6 +75,17 @@ export default {
 }
 </script>
 
+<script setup>
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: About Us',
+  meta: [
+    { name: 'description', content: 'Learn more about SoulFlow NYC, our mission, values, and the community we serve.' }
+  ]
+})
+</script>
+
 <style scoped>
 .about-page {
   max-width: 1400px;

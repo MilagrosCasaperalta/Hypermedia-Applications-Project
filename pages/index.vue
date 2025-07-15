@@ -85,6 +85,14 @@
 <script setup>
 import ContactForm from '~/components/ContactForm.vue'
 import { computed } from 'vue'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: Yoga & Mindful Movement in New York City',
+  meta: [
+    { name: 'description', content: 'Find your flow. Yoga, breathwork, and community at SoulFlow NYC.' }
+  ]
+})
 
 const { data: activities } = await useFetch('/api/activities/events')
 const events = computed(() =>

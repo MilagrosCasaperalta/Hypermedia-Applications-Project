@@ -51,6 +51,14 @@
 
 <script setup>
 import { useRoute } from 'vue-router'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: Event Details',
+  meta: [
+    { name: 'description', content: 'Discover the unique journey and teaching philosophy of our dedicated instructors at SoulFlow NYC.' }
+  ]
+})
 
 const route = useRoute()
 const alias = route.params.alias

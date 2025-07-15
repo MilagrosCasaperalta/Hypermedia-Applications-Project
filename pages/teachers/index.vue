@@ -17,6 +17,15 @@
 </template>
 
 <script setup>
+
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: Teachers',
+  meta: [
+    { name: 'description', content: 'Meet the dedicated teachers at SoulFlow NYC, each committed to guiding you on your journey of self-discovery and growth.' }
+  ]
+})
 const { data: teachers } = await useFetch('/api/teachers')
 </script>
 

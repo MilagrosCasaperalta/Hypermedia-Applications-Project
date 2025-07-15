@@ -42,6 +42,14 @@
 
 <script setup>
 import '~/assets/css/activity-page.css'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'SoulFlow NYC: Teacher Profile',
+  meta: [
+    { name: 'description', content: 'Discover the unique journey and teaching philosophy of our dedicated instructors at SoulFlow NYC.' }
+  ]
+})
 const route = useRoute()
 const alias = route.params.alias
 const { data: teacher } = await useFetch('/api/teachers/' + alias)

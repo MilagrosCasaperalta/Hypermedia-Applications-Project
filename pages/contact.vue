@@ -15,6 +15,15 @@ import ContactForm from '~/components/ContactForm.vue'
 
   </template>
 
+<script setup>
+import { useHead } from '#imports'
+useHead({
+  title: 'Contact SoulFlow NYC',
+  meta: [
+    { name: 'description', content: 'Get in touch with SoulFlow NYC. We’re here to help you find your flow.' }
+  ]
+})
+</script>
 
 <style scoped>
 .hero {
