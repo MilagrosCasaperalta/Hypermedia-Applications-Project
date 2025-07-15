@@ -55,6 +55,7 @@
         <h2>What's next?</h2>
         <p class="intro">
           Step into something greater than just a class. Be part of a vibrant community
+          
           coming together through soulful events, mindful movement, and shared transformation.
         </p>
         <div class="carousel">
