@@ -112,7 +112,8 @@ const { data: highlights } = await useFetch('/api/highlight')
 .about { background-color: rgba(94, 57, 19, 0.5); color: #fff; text-align: center }
 .about h2 { font-size: clamp(1.8rem, 5vw, 2.5rem) }
 .about p { font-size: clamp(1rem, 3vw, 1.2rem); max-width: 800px; margin: 20px auto }
-.section.teachers { display: flex; align-items: center; gap: 40px; padding: 60px 0 }
+.section.teachers { display: flex; align-items: center; justify-content: center; gap: 40px; padding: 60px 0; max-width: 1200px; margin: 0 auto;   }
+.teachers-paragraph ::v-deep .paragraph-image { margin-right: 40px; }
 @media (max-width: 768px) { .section.teachers { flex-direction: column; text-align: center; gap: 20px; padding: 40px 20px } .section.teachers img { margin: 0 auto; max-width: 80% } .section.teachers p { padding: 0 20px; margin-bottom: 20px } }
 .carousel {
   display: flex;
@@ -134,7 +135,7 @@ const { data: highlights } = await useFetch('/api/highlight')
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   text-align: center;
 }
-@media (min-width: 769px) {
+@media (min-width: 720px) {
   .carousel {
     overflow: visible;
     flex-wrap: wrap;
