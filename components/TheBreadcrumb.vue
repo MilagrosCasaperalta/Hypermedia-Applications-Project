@@ -41,14 +41,19 @@ const breadcrumbs = computed(() => {
 
 <style scoped>
 .breadcrumb {
-  display: flex;
-  list-style: none;
-  padding: 0;
   margin: 1rem 3%;
   font-size: 2.2rem;
   font-family: 'Segoe UI', sans-serif;
   color: #8a6a4d;
+}
+
+.breadcrumb ul {
+  display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
 }
 
 .breadcrumb li {
