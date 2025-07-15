@@ -29,7 +29,7 @@ import ContactForm from '~/components/ContactForm.vue'
 .overlay {
   position: absolute;
   inset: 0;
-  background-image: url('/img/contact/contact_us_main.JPG');
+  background-image: url('public/img/contact/contact_us_main.jpg');
   background-size: cover;
   background-position: center;
   filter: blur(8px);
