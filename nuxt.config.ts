@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/supabase'],
   css: ['@/assets/css/main.css'],
+  ssr: true,
   app: {
     head: {
       link: [
